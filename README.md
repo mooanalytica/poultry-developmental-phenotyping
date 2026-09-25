@@ -1,7 +1,3 @@
-# poultry-developmental-phenotyping
-
-Code and reproducible analyses for multimodal phenotyping of laying-hen flock development and growth.
-
 ## Feature-Level Multimodal Fusion for Developmental Phenotyping in Laying Hens
 
 **Daniel Edison Essien, Suresh Neethirajan**
