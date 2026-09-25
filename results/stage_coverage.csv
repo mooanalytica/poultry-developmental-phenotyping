@@ -1,0 +1,16 @@
+stage,room,n_hours,n_days,unreliable
+<45 d,room2,93,11,False
+<45 d,room6,11,1,True
+<45 d,room7,117,12,False
+45-75 d,room2,225,21,False
+45-75 d,room6,303,28,False
+45-75 d,room7,287,28,False
+75-105 d,room2,120,12,False
+75-105 d,room6,160,18,False
+75-105 d,room7,295,27,False
+105-140 d,room2,395,34,False
+105-140 d,room6,254,25,False
+105-140 d,room7,405,35,False
+>140 d,room2,567,41,False
+>140 d,room6,405,31,False
+>140 d,room7,615,42,False

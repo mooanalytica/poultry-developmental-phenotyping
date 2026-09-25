@@ -1,0 +1,73 @@
+mode,phase,k_days,n_pos,n_neg,estimable,AUC,sensitivity_at_95pct_specificity,fpr_0.05_resolvable,window,status
+morph_only,growth (<=70 d),3,63,83,True,0.6687703193727289,0.3968253968253968,True,rolling,estimable
+morph_only,growth (<=70 d),5,59,83,True,0.7341229324075965,0.4745762711864407,True,rolling,estimable
+morph_only,growth (<=70 d),7,53,83,True,0.7460786542395998,0.4528301886792453,True,rolling,estimable
+morph_only,growth (<=70 d),10,44,83,True,0.9668674698795181,0.8636363636363636,True,rolling,estimable
+morph_only,growth (<=70 d),15,32,83,True,1.0,1.0,True,rolling,estimable
+morph_only,growth (<=70 d),20,26,83,True,1.0,1.0,True,rolling,estimable
+morph_only,plateau (>70 d),3,238,277,True,0.5135454903983254,0.0546218487394958,True,rolling,estimable
+morph_only,plateau (>70 d),5,237,277,True,0.5331231244954227,0.06751054852320675,True,rolling,estimable
+morph_only,plateau (>70 d),7,237,277,True,0.5540983107130345,0.06329113924050633,True,rolling,estimable
+morph_only,plateau (>70 d),10,233,277,True,0.5821105963651013,0.08583690987124463,True,rolling,estimable
+morph_only,plateau (>70 d),15,236,277,True,0.643731261090375,0.1440677966101695,True,rolling,estimable
+morph_only,plateau (>70 d),20,228,277,True,0.6997276584964215,0.2412280701754386,True,rolling,estimable
+morph_only,all,3,301,360,True,0.5183370247323735,0.046511627906976744,True,rolling,estimable
+morph_only,all,5,296,360,True,0.5417886636636637,0.07432432432432433,True,rolling,estimable
+morph_only,all,7,290,360,True,0.5641379310344827,0.07241379310344828,True,rolling,estimable
+morph_only,all,10,277,360,True,0.6054452466907341,0.07220216606498195,True,rolling,estimable
+morph_only,all,15,268,360,True,0.6674025704809287,0.13059701492537312,True,rolling,estimable
+morph_only,all,20,254,360,True,0.7208005249343833,0.2204724409448819,True,rolling,estimable
+all_sensor,growth (<=70 d),3,63,83,True,0.6831134060049723,0.38095238095238093,True,rolling,estimable
+all_sensor,growth (<=70 d),5,59,83,True,0.7510720849499695,0.4915254237288136,True,rolling,estimable
+all_sensor,growth (<=70 d),7,53,83,True,0.7994998863378041,0.5094339622641509,True,rolling,estimable
+all_sensor,growth (<=70 d),10,44,83,True,0.9720700985761227,0.9090909090909091,True,rolling,estimable
+all_sensor,growth (<=70 d),15,32,83,True,1.0,1.0,True,rolling,estimable
+all_sensor,growth (<=70 d),20,26,83,True,1.0,1.0,True,rolling,estimable
+all_sensor,plateau (>70 d),3,238,277,True,0.5240421078178563,0.07983193277310924,True,rolling,estimable
+all_sensor,plateau (>70 d),5,237,277,True,0.5430851955094518,0.08016877637130802,True,rolling,estimable
+all_sensor,plateau (>70 d),7,237,277,True,0.5685387439260308,0.06751054852320675,True,rolling,estimable
+all_sensor,plateau (>70 d),10,233,277,True,0.6138423637687671,0.11587982832618025,True,rolling,estimable
+all_sensor,plateau (>70 d),15,236,277,True,0.6877715229761977,0.19491525423728814,True,rolling,estimable
+all_sensor,plateau (>70 d),20,228,277,True,0.7477357654062955,0.2631578947368421,True,rolling,estimable
+all_sensor,all,3,301,360,True,0.527141011443337,0.06312292358803986,True,rolling,estimable
+all_sensor,all,5,296,360,True,0.5516985735735735,0.06756756756756757,True,rolling,estimable
+all_sensor,all,7,290,360,True,0.5810249042145594,0.05517241379310345,True,rolling,estimable
+all_sensor,all,10,277,360,True,0.6324007220216608,0.10469314079422383,True,rolling,estimable
+all_sensor,all,15,268,360,True,0.7068615257048093,0.17164179104477612,True,rolling,estimable
+all_sensor,all,20,254,360,True,0.7693241469816274,0.23622047244094488,True,rolling,estimable
+morph_only,growth (<=70 d),3,9,12,False,,,False,non-overlapping,not estimable (<10 windows)
+morph_only,growth (<=70 d),5,8,12,False,,,False,non-overlapping,not estimable (<10 windows)
+morph_only,growth (<=70 d),7,8,12,False,,,False,non-overlapping,not estimable (<10 windows)
+morph_only,growth (<=70 d),10,6,12,False,,,False,non-overlapping,not estimable (<10 windows)
+morph_only,growth (<=70 d),15,5,12,False,,,False,non-overlapping,not estimable (<10 windows)
+morph_only,growth (<=70 d),20,3,12,False,,,False,non-overlapping,not estimable (<10 windows)
+morph_only,plateau (>70 d),3,36,41,True,0.5040650406504065,0.05555555555555555,True,non-overlapping,estimable
+morph_only,plateau (>70 d),5,35,41,True,0.526829268292683,0.08571428571428572,True,non-overlapping,estimable
+morph_only,plateau (>70 d),7,34,41,True,0.5351506456241033,0.08823529411764706,True,non-overlapping,estimable
+morph_only,plateau (>70 d),10,34,41,True,0.5817790530846485,0.11764705882352941,True,non-overlapping,estimable
+morph_only,plateau (>70 d),15,35,41,True,0.6334494773519165,0.11428571428571428,True,non-overlapping,estimable
+morph_only,plateau (>70 d),20,35,41,True,0.6898954703832753,0.22857142857142856,True,non-overlapping,estimable
+morph_only,all,3,45,53,True,0.5174004192872117,0.044444444444444446,True,non-overlapping,estimable
+morph_only,all,5,43,53,True,0.5340061430451952,0.06976744186046512,True,non-overlapping,estimable
+morph_only,all,7,42,53,True,0.5480682839173405,0.07142857142857142,True,non-overlapping,estimable
+morph_only,all,10,40,53,True,0.6066037735849057,0.1,True,non-overlapping,estimable
+morph_only,all,15,40,53,True,0.6537735849056604,0.1,True,non-overlapping,estimable
+morph_only,all,20,38,53,True,0.7040714995034757,0.21052631578947367,True,non-overlapping,estimable
+all_sensor,growth (<=70 d),3,9,12,False,,,False,non-overlapping,not estimable (<10 windows)
+all_sensor,growth (<=70 d),5,8,12,False,,,False,non-overlapping,not estimable (<10 windows)
+all_sensor,growth (<=70 d),7,8,12,False,,,False,non-overlapping,not estimable (<10 windows)
+all_sensor,growth (<=70 d),10,6,12,False,,,False,non-overlapping,not estimable (<10 windows)
+all_sensor,growth (<=70 d),15,5,12,False,,,False,non-overlapping,not estimable (<10 windows)
+all_sensor,growth (<=70 d),20,3,12,False,,,False,non-overlapping,not estimable (<10 windows)
+all_sensor,plateau (>70 d),3,36,41,True,0.5277777777777778,0.1111111111111111,True,non-overlapping,estimable
+all_sensor,plateau (>70 d),5,35,41,True,0.5331010452961673,0.08571428571428572,True,non-overlapping,estimable
+all_sensor,plateau (>70 d),7,34,41,True,0.5545193687230989,0.11764705882352941,True,non-overlapping,estimable
+all_sensor,plateau (>70 d),10,34,41,True,0.5982783357245337,0.11764705882352941,True,non-overlapping,estimable
+all_sensor,plateau (>70 d),15,35,41,True,0.6682926829268292,0.2,True,non-overlapping,estimable
+all_sensor,plateau (>70 d),20,35,41,True,0.751219512195122,0.2571428571428571,True,non-overlapping,estimable
+all_sensor,all,3,45,53,True,0.5320754716981132,0.08888888888888889,True,non-overlapping,estimable
+all_sensor,all,5,43,53,True,0.5423431329530496,0.06976744186046512,True,non-overlapping,estimable
+all_sensor,all,7,42,53,True,0.5700808625336927,0.09523809523809523,True,non-overlapping,estimable
+all_sensor,all,10,40,53,True,0.6216981132075472,0.1,True,non-overlapping,estimable
+all_sensor,all,15,40,53,True,0.6872641509433962,0.175,True,non-overlapping,estimable
+all_sensor,all,20,38,53,True,0.7656405163853028,0.23684210526315788,True,non-overlapping,estimable

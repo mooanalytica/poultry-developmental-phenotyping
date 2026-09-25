@@ -1,0 +1,13 @@
+window,mode,phase,min_detectable_delay_days,n_estimable_delays
+non-overlapping,all_sensor,all,,6
+non-overlapping,all_sensor,growth (<=70 d),,0
+non-overlapping,all_sensor,plateau (>70 d),,6
+non-overlapping,morph_only,all,,6
+non-overlapping,morph_only,growth (<=70 d),,0
+non-overlapping,morph_only,plateau (>70 d),,6
+rolling,all_sensor,all,,6
+rolling,all_sensor,growth (<=70 d),10.0,6
+rolling,all_sensor,plateau (>70 d),,6
+rolling,morph_only,all,,6
+rolling,morph_only,growth (<=70 d),10.0,6
+rolling,morph_only,plateau (>70 d),,6

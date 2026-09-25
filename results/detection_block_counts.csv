@@ -1,0 +1,15 @@
+phase,k_days,n_independent_blocks,estimable
+growth (<=70 d),0,12,True
+growth (<=70 d),3,9,False
+growth (<=70 d),5,8,False
+growth (<=70 d),7,8,False
+growth (<=70 d),10,6,False
+growth (<=70 d),15,5,False
+growth (<=70 d),20,3,False
+plateau (>70 d),0,41,True
+plateau (>70 d),3,36,True
+plateau (>70 d),5,35,True
+plateau (>70 d),7,34,True
+plateau (>70 d),10,34,True
+plateau (>70 d),15,35,True
+plateau (>70 d),20,35,True

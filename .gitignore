@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# input data are not distributed
+data/
+
+# fitted-model cache
+.cache/
