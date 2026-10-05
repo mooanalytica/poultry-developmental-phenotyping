@@ -33,6 +33,7 @@ code/
   sensitivity_hyperparameters.py   hyperparameter sensitivity
   sensitivity_data_availability.py sensitivity to the complete-case restriction
   figures.py                       figures
+data/                               input data (see Data below)
 results/                           output tables (CSV)
 figures/                           figures (PNG, 600 dpi)
 run_all.sh                         runs the analysis from the master table
@@ -40,7 +41,7 @@ run_all.sh                         runs the analysis from the master table
 
 ## Data
 
-Input data are not included. The analysis expects:
+Input data are included in `data/`:
 
 ```
 data/master_hourly.csv                     fused hourly master table
