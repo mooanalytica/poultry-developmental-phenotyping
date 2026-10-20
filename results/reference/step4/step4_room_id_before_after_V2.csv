@@ -1,0 +1,7 @@
+version,block,n_features,room_id_accuracy,per_block_accuracy,chance
+"before_V2 (primary: bio raw, equip own-room median/IQR)",audio_bio,50,0.9935798935384863,0.996;1.000;1.000;0.996;0.975,0.3333333333333333
+"before_V2 (primary: bio raw, equip own-room median/IQR)",audio_equip,25,0.8967368806731203,0.870;0.909;0.951;0.795;0.958,0.3333333333333333
+"before_V2 (primary: bio raw, equip own-room median/IQR)",audio_all,75,0.994531431238166,0.996;1.000;1.000;0.998;0.979,0.3333333333333333
+after_V2 (first-week reference),audio_bio,50,0.9766126147654578,0.992;0.975;0.992;0.930;0.995,0.3333333333333333
+after_V2 (first-week reference),audio_equip,25,0.9692500889876399,0.973;0.970;0.989;0.945;0.969,0.3333333333333333
+after_V2 (first-week reference),audio_all,75,0.978534426882382,0.986;0.974;0.996;0.951;0.986,0.3333333333333333

@@ -1,0 +1,9 @@
+regime,offset,specificity room2,sensitivity room2,windows room2 (pos),specificity room6,sensitivity room6,windows room6 (pos),specificity room7,sensitivity room7,windows room7 (pos)
+growth (<=70 d),5 d,1.000,0.625,8,0.625,1.000,16,1.000,0.174,23
+growth (<=70 d),10 d,1.000,1.000,2,0.667,1.000,12,1.000,1.000,19
+growth (<=70 d),15 d,1.000,1.000,1,1.000,1.000,7,1.000,1.000,15
+growth (<=70 d),20 d,1.000,1.000,4,1.000,1.000,3,1.000,1.000,10
+plateau (>70 d),5 d,1.000,0.000,69,0.730,0.297,37,1.000,0.000,104
+plateau (>70 d),10 d,1.000,0.000,62,0.529,0.676,34,1.000,0.000,103
+plateau (>70 d),15 d,1.000,0.000,61,0.634,0.854,41,1.000,0.000,102
+plateau (>70 d),20 d,1.000,0.000,59,0.667,0.939,33,1.000,0.000,104

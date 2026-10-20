@@ -220,3 +220,21 @@ __marimo__/
 
 # fitted-model cache
 .cache/
+
+# local and generated files (not part of the release)
+.cache*/
+*.orig
+*.patch
+appendix/
+oct17_figures/
+docs/
+_previous_names/
+results/run/
+results/figure_checks/
+results/derived_files_register.csv
+results/data_coverage.csv
+results/key_dates.csv
+results/results_sheet.xlsx
+results/phase2_checks.csv
+results/phase2_checks.md
+results/phase2_set_mismatches.csv

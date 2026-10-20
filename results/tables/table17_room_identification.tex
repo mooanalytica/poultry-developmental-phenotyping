@@ -1,0 +1,13 @@
+% Table 17. Room identification from audio features (age-block cross-validation; chance 0.333), before and after the V2 first-week reference
+\begin{tabular}{lllll}
+\hline
+version & audio block & features & room-identification accuracy & detail \\
+\hline
+before\_V2 (primary: bio raw, equip own-room median/IQR) & audio\_bio & 50 & 0.994 & chance=0.3333; per-block accuracy 0.996;1.000;1.000;0.996;0.975 \\
+before\_V2 (primary: bio raw, equip own-room median/IQR) & audio\_equip & 25 & 0.897 & chance=0.3333; per-block accuracy 0.870;0.909;0.951;0.795;0.958 \\
+before\_V2 (primary: bio raw, equip own-room median/IQR) & audio\_all & 75 & 0.995 & chance=0.3333; per-block accuracy 0.996;1.000;1.000;0.998;0.979 \\
+after\_V2 (first-week reference) & audio\_bio & 50 & 0.977 & chance=0.3333; per-block accuracy 0.992;0.975;0.992;0.930;0.995 \\
+after\_V2 (first-week reference) & audio\_equip & 25 & 0.969 & chance=0.3333; per-block accuracy 0.973;0.970;0.989;0.945;0.969 \\
+after\_V2 (first-week reference) & audio\_all & 75 & 0.979 & chance=0.3333; per-block accuracy 0.986;0.974;0.996;0.951;0.986 \\
+\hline
+\end{tabular}

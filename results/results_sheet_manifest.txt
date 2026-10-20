@@ -1,0 +1,272 @@
+date: 2026-10-20T01:12:37
+run directory: release_run
+wall-clock runtime: 6.3 min
+python: 3.14.6 on macOS-26.4-arm64-arm-64bit-Mach-O
+master data (used): data/master_hourly_oct15.csv sha256=6ec5982951fd2897aa3131a411f9f95bbb2367e4e4a8bc9adede5a3c88afb7b7
+master data (original, untouched): data/master_hourly.csv sha256=9d56845a83edf82ee7a37bac29c39ded343f4bfe21dccb5f286206383fa34414
+audio input audio_hourly_room2_denoised.csv sha256=b23a23f23734c17ea0d8d7250af2af77e2216030cc0ebd1928485f7f39061b60
+audio input audio_hourly_room6_denoised.csv sha256=b47a78084088bfe712d20e9a3c850dfe33af2793421de04073197665fbd4618b
+audio input audio_hourly_room7_denoised.csv sha256=405b29f728680d0ceb2ea1df963b28ff4261d78f5fb9c88aea25c6a6088f666c
+code hash (all code/*.py, code/phase2, code/analysis, run_all.py, make_tables.py): sha256=a3441e9dc6622ca9ed6d971d79ab2d1251dd60608c5f172df24f4507a03e9d9b
+  code/analysis/clustering_epochs.py 6621e8ce4365b682
+  code/analysis/daily_demeaning.py dd6eaf34e6340289
+  code/analysis/paired_fusion.py b8f302de87411cf4
+  code/analysis/stage_classification.py ce88b81ec6dcc46a
+  code/attribution.py 443324cd92e6301d
+  code/availability_regimes.py dfca3988b7f4c677
+  code/build_master.py 66c6e9de2ff2679d
+  code/common.py 0deb4fbbc6dd3b28
+  code/comparators.py daa5051a9a82b9e2
+  code/controls.py bf779e6d49cbcad1
+  code/cvd_check.py 2b2d0358452d8c16
+  code/datasets.py d95148ce3e43b3b7
+  code/detection.py 39ec452897046387
+  code/detection_legacy_rev3.py 48ae23e0e0f8f65b
+  code/evaluate.py f0472266a31ba13e
+  code/figures.py 07c8c93dfffa467f
+  code/gru_comparator.py e6f8990538a93df4
+  code/models.py ea102806abb99ffc
+  code/morpho_hourly.py 1b8293b1e5e50b2e
+  code/phase2/aggregate_shuffle.py d0de0a6c8b38ad7a
+  code/phase2/baselines_stage.py 5be5fcf09372c2f3
+  code/phase2/body_size_stage.py 01adcf7a398bae22
+  code/phase2/build_final_workbook.py cc2515fba057dd14
+  code/phase2/build_results_sheet.py 57894d87110e9eb2
+  code/phase2/check_results.py 4300fb6f296a28f7
+  code/phase2/controls_stage.py 0dd0b7524e9ee258
+  code/phase2/controls_thermal_stage.py 82119707cabe1719
+  code/phase2/core_models.py d622cd7904acc3ce
+  code/phase2/cumulative_stage.py 470ac7539ad17887
+  code/phase2/data_description.py 5860df8336c233fc
+  code/phase2/derive_figure_data.py 8c0b1b52c28779f3
+  code/phase2/et_fusion_stage.py e48b141f31406358
+  code/phase2/feature_hashes.py 0036c9454822a24a
+  code/phase2/gru_stage.py 124cdeab1972fc4c
+  code/phase2/model_family_stage.py 3b109de1330b906e
+  code/phase2/ref_loro.py c0e99ab1951d33ec
+  code/phase2/room_id.py ee50d91dd7ea41cf
+  code/phase2/valid_windows_stage.py a743078821f11c76
+  code/phase2/xlsx_min.py 1438b5c6a0c3ccb9
+  code/plot_style.py 3747bf5922d4ff78
+  code/preprocessing.py b57b60b61a12cb7d
+  code/scale_filter.py 1f6e6ab9de72a949
+  code/sensitivity_data_availability.py 672233396e8348e4
+  code/sensitivity_hyperparameters.py f9d143059bfafe7e
+  code/shuffled_label.py 77d2fd9c3a5ec9f9
+  code/stage_breakdown.py deed2f151cb97588
+  code/uncertainty.py 84b345b19aa78a08
+  make_tables.py bb435b1f4ff18096
+  run_all.py 77f95311c3faed33
+seeds: PYTHONHASHSEED=0; models.hgb random_state=0; numpy seed 0; torch seed per GRU seed 0-4; shuffled-label seeds default_rng([20251017, permutation, fold]); bootstrap default_rng(0)
+
+feature-matrix hashes (SHA-256 of the windowed feature matrix per fold):
+primary	fused	LORO	room2	rows=16792	cols=333	sha256=25101000d19bf5ac4879ad48a22399c9b3c4ad2b0ed82613c32fbec0f37009e7
+primary	fused	LORO	room6	rows=16792	cols=333	sha256=63962f829fc13a8883ba5045f9fdce4c27df5df0b21941c2e612f15be28ff548
+primary	fused	LORO	room7	rows=16792	cols=333	sha256=d7f805971bd70d27e0cadb879bf0f28a6f598dfa414805e75714a42eda5b3b8b
+primary	fused	AGEBLOCK	0	rows=16792	cols=315	sha256=6085ee387b39bd1f81714a4d773d04365627caaecbe1ac3c87ecc4c95836029f
+primary	fused	AGEBLOCK	1	rows=16792	cols=333	sha256=7bae3f617f46de8a61c5c9d4fed752b802986e0f25a190d5a06e87abcda7522b
+primary	fused	AGEBLOCK	2	rows=16792	cols=333	sha256=6936beaca1459a0d3e9d12ac473bd5286152c719600149cc5e17276d2b1c50e2
+primary	fused	AGEBLOCK	3	rows=16792	cols=333	sha256=1f4d1fcdefd97acd6cf2eac3772a483ddfcbc372442c1d39f118d0f22ed62e1a
+primary	fused	AGEBLOCK	4	rows=16792	cols=333	sha256=42bb7f7e43018b5f87adc28d07b286346fc0710c677256e4c0d5b4b9c347cfe3
+primary	fused	SEASON	summer	rows=16792	cols=315	sha256=b94a2d86e7f774da903d4bd7e79d93ce7a0c8e9531ad93ecb940e165cfe699d8
+primary	fused	SEASON	fall	rows=16792	cols=333	sha256=2b0dbcf58337d4b6db0309c2ab0b33e74bf309c5857c86c25d41f008098c1f07
+primary	fused	ALL_FOLDS_COMBINED	-	-	-	sha256=142d3349c184b88e7fb2aa9e8e78aa82c9869d03331700a000810cdd652eb707
+primary	morph_only	LORO	room2	rows=16792	cols=49	sha256=eb6618135fd91776a4063ed10e100b38956d48f789cac7c9bd54d44420cd9fca
+primary	morph_only	LORO	room6	rows=16792	cols=49	sha256=7d84f9d96e65b1bfb2d56c432c07689636f4c278f0f4debe930cb4792a77b9f8
+primary	morph_only	LORO	room7	rows=16792	cols=49	sha256=189b2dd45466ad313105eadbfcaf5b544123a90d536ec2cc3f01875c33eb5296
+primary	morph_only	AGEBLOCK	0	rows=16792	cols=31	sha256=a5072e7db5b0304beafb7d1b9682ad1c190a4b4d28107a378ab92b8ce2235812
+primary	morph_only	AGEBLOCK	1	rows=16792	cols=49	sha256=17504e0f1fecae265a353785bc1e7d21e9956de0ee390e5ea583af86ce6dbc02
+primary	morph_only	AGEBLOCK	2	rows=16792	cols=49	sha256=a0d441a7b6ef6b7b7b076405189a28a18ef6f42ee08e402a6340c7be26710408
+primary	morph_only	AGEBLOCK	3	rows=16792	cols=49	sha256=41271fae09fd5e030568474c5806151c534290f39ef01c271da521930a119782
+primary	morph_only	AGEBLOCK	4	rows=16792	cols=49	sha256=4fc4007e61785b029084398bad3d18784e9e90a2af4cee9aa6ec01a59623c818
+primary	morph_only	SEASON	summer	rows=16792	cols=31	sha256=d4a359c67094ca0c07eb5984f25e780540a9d68846c93abe5403df6c0f1391b5
+primary	morph_only	SEASON	fall	rows=16792	cols=49	sha256=73d3b78a9be3f4199652f5fef9a2c397160623fa0e5157057c5dbfb09ac7d46f
+primary	morph_only	ALL_FOLDS_COMBINED	-	-	-	sha256=071f9723a89ff54b980fde9b245cbe1ecb923f0762206de75884e64ef416d09a
+primary	morph_body_only	LORO	room2	rows=16792	cols=42	sha256=afbe59f23acde51d252b31a02d196f95432443a6561d53aa2aa03d6e4a27914a
+primary	morph_body_only	LORO	room6	rows=16792	cols=42	sha256=a8d638c9e8b2ad8be9751a185819d39db36f6aae3d57e3e4856e6da0dd67530e
+primary	morph_body_only	LORO	room7	rows=16792	cols=42	sha256=c6a7357e8442f98003f5fbe0a15e988eebec1dce8b530c7e59ede74566bf5428
+primary	morph_body_only	AGEBLOCK	0	rows=16792	cols=24	sha256=6c2a3f0c83b49b325fc64398f676be2ebf768ffc495cb8176276106697dee88e
+primary	morph_body_only	AGEBLOCK	1	rows=16792	cols=42	sha256=b50bedf6b434d4cbb171c09e3cc105dbeffc718e2df266906c7e5d0f09837be3
+primary	morph_body_only	AGEBLOCK	2	rows=16792	cols=42	sha256=3a8f52d6af7e26b621f763140dfc67b91707dce095572f2a02fb0935fefe48ec
+primary	morph_body_only	AGEBLOCK	3	rows=16792	cols=42	sha256=4c0d2d77a3fceab502d855b9f09e269cde4c5307676cb78d27600f2f30ed3684
+primary	morph_body_only	AGEBLOCK	4	rows=16792	cols=42	sha256=8c977d65894a2553c5b5d40eabd58b68a1bb6734794b84621c43eed0748eb43e
+primary	morph_body_only	SEASON	summer	rows=16792	cols=24	sha256=1654eb26c39b9271d795db6c6787a754460bed9893e9497ef500ab97e680384b
+primary	morph_body_only	SEASON	fall	rows=16792	cols=42	sha256=e314caeed11baa1d8da014a4e23370ca96e0cf07bcc38b291774b7fb21c07b5e
+primary	morph_body_only	ALL_FOLDS_COMBINED	-	-	-	sha256=b59489e0d4fe8cc4553d7e5f7e8be8ac53d225a77a67e5ab51f57757c3a4f466
+V2	fused	LORO	room2	rows=16792	cols=333	sha256=15ae1e724851d979c63a68c7c075df7e71c502928333cdaaf3ec53ed876c5c77
+V2	fused	LORO	room6	rows=16792	cols=333	sha256=1890612aeafa7aa4b30e2d8360a3a3938a6b02f7778eb223418a8cbdc7c79860
+V2	fused	LORO	room7	rows=16792	cols=333	sha256=6f773fea19d975cf94eda8cd3d9ea64deabcca034ff57c8c2480d65606e02471
+V2	fused	AGEBLOCK	0	rows=16792	cols=315	sha256=b512e592593c2e1e7f04d383c5112b61742e87b87fdabc4fbfded057d5be3a07
+V2	fused	AGEBLOCK	1	rows=16792	cols=333	sha256=ab8a2d63d2dbf87a0f74f5d1c6d2cb17cbe7880f1f14a5d1f3b835aa59312276
+V2	fused	AGEBLOCK	2	rows=16792	cols=333	sha256=b717838bc9497bccdb0eae2c3503ebc3bb9c343258c54f01bc24422e1d611b7d
+V2	fused	AGEBLOCK	3	rows=16792	cols=333	sha256=5915e815d23fa0fdf835def430e18eb321189d5e8225f6b1402127838cc0be9e
+V2	fused	AGEBLOCK	4	rows=16792	cols=333	sha256=2e677853d404186c264cd12501767cb93338184eed89378a71c014b03a3ca218
+V2	fused	SEASON	summer	rows=16792	cols=165	sha256=d3063bb9eb446cecd23d3619ff4e1561354329758e906b01711cfe7cff34638f
+V2	fused	SEASON	fall	rows=16792	cols=333	sha256=bfc060266e23574ba5e14b8b5f02609543f7a4515139e5fe1a0f1086ea5e7b2b
+V2	fused	ALL_FOLDS_COMBINED	-	-	-	sha256=b62ee71ec0c69fa413f8c631c51bf24f718a51bf68947516e8cbc929e8915ed5
+
+stage runtimes (s):
+  checks: 54.1
+  et_fusion: 81.6
+  model_family: 323.3
+  sheet: 1.0
+  tables: 0.8
+  workbook: 0.8
+
+package versions:
+  anaconda-anon-usage==0.8.1
+  anaconda-auth==0.15.1
+  anaconda-channel-guide==0.1.1
+  anaconda-cli-base==0.9.1
+  annotated-doc==0.0.4
+  annotated-types==0.6.0
+  anyio==4.12.1
+  archspec==0.2.6
+  autoflake==2.4.0
+  black==26.10.1
+  boltons==25.0.0
+  brotlicffi==1.2.0.0
+  build==1.3.0
+  certifi==2026.6.17
+  cffi==2.0.0
+  charset-normalizer==3.4.7
+  click==8.4.1
+  cloudpickle==3.1.2
+  conda==26.5.3
+  conda-anaconda-telemetry==0.3.0
+  conda-anaconda-tos==0.2.2
+  conda-content-trust==0.3.2
+  conda-libmamba-solver==26.6.0
+  conda-lockfiles==0.2.0
+  conda-package-handling==2.5.0
+  conda-pypi==0.11.0
+  conda-rattler-solver==0.1.1
+  conda-self==0.2.0
+  conda_index==0.12.1
+  conda_package_streaming==0.13.0
+  contourpy==1.3.3
+  cryptography==49.0.0
+  cycler==0.12.1
+  distro==1.9.0
+  et_xmlfile==2.0.0
+  filelock==3.29.4
+  fonttools==4.63.0
+  frozendict==2.4.7
+  fsspec==2026.7.0
+  h11==0.16.0
+  httpcore==1.0.9
+  httpx==0.28.1
+  idna==3.18
+  installer==1.0.0
+  isort==9.0.2
+  jaraco.classes==3.4.0
+  jaraco.context==6.1.0
+  jaraco.functools==4.4.0
+  Jinja2==3.1.6
+  joblib==1.5.3
+  jsonpatch==1.33
+  jsonpointer==3.1.1
+  keyring==25.7.0
+  kiwisolver==1.5.0
+  libmambapy==2.3.2
+  llvmlite==0.49.0
+  lxml==6.1.3
+  markdown-it-py==4.0.0
+  MarkupSafe==3.0.3
+  matplotlib==3.11.1
+  mdurl==0.1.2
+  menuinst==2.5.1
+  more-itertools==11.0.2
+  mpmath==1.3.0
+  msgpack==1.2.1
+  mypy_extensions==1.1.0
+  narwhals==2.25.0
+  networkx==3.6.1
+  numba==0.67.0
+  numpy==2.5.2
+  openpyxl==3.1.5
+  packaging==26.0
+  pandas==3.0.5
+  pathspec==1.1.1
+  patsy==1.0.2
+  pillow==12.3.0
+  pip==26.1.2
+  pkce==1.0.3
+  platformdirs==4.9.4
+  pluggy==1.6.0
+  progressbar2==4.6.0
+  py-rattler==0.25.0
+  pycosat==0.6.6
+  pycparser==3.0
+  pydantic==2.13.4
+  pydantic-settings==2.14.2
+  pydantic_core==2.46.4
+  pyflakes==4.0.3
+  pygam==0.12.0
+  Pygments==2.20.0
+  PyJWT==2.13.0
+  pyparsing==3.3.2
+  pyproject_hooks==1.2.0
+  PySocks==1.7.1
+  python-dateutil==2.9.0.post0
+  python-docx==1.2.0
+  python-dotenv==1.2.1
+  python-utils==4.0.0
+  pytokens==0.4.1
+  readchar==4.2.2
+  requests==2.34.2
+  rich==14.2.0
+  ruamel.yaml==0.18.16
+  ruamel.yaml.clib==0.2.14
+  ruptures==1.1.9
+  scikit-learn==1.9.0
+  scipy==1.16.3
+  seaborn==0.13.2
+  semver==3.0.4
+  setuptools==82.0.1
+  shap==0.52.0
+  shellingham==1.5.4
+  six==1.17.0
+  slicer==0.0.8
+  statsmodels==0.14.6
+  sympy==1.14.0
+  tabulate==0.10.0
+  threadpoolctl==3.6.0
+  tomli==2.4.0
+  tomli_w==1.2.0
+  tomlkit==0.13.3
+  torch==2.13.0
+  tqdm==4.68.2
+  truststore==0.10.4
+  typer==0.25.1
+  typing-inspection==0.4.2
+  typing_extensions==4.15.0
+  unearth==0.18.2
+  urllib3==2.7.0
+  wheel==0.47.0
+  zstandard==0.25.0
+results sheet sha256: a27b8c581f7349e4a8c28dddc8ec0c83133fa12a5770338753e89ea4c204320f
+
+registered derived files (read by make_figures.py):
+  release_run/core_primary/preds_loro_primary.csv sha256=04ee349475690fc00efd3861c36cc60e627506ca601ca1b618c4d16191612688
+  release_run/core_primary/preds_ageblock_primary.csv sha256=d22ad4b18eb521e9cbf2d8f1ebac988d730739186ce225d4e09758e5481bf43e
+  release_run/core_v2/preds_loro_V2.csv sha256=04ff61a5a5a18ba1d37c2c0f20bbac03f0f334ae681b4b3269801868b7470f41
+  release_run/detection/set2_window_scores.csv sha256=bbeec342042222911062e20540a9175f2aac9f83f7cb1175b3ca4cc97f4b35f4
+  release_run/detection/set2_window_scores_k0.csv sha256=459ebb65ef3593f6d6b2dcf3878ef38e68e016064b503bcd6a53c27abc5fddcd
+  release_run/attribution/feature_attribution.csv sha256=62bbd3ed7bf668715f76f84b28d3f98e5a0b691030e7fc85c53e7c264b610b89
+  release_run/clustering/set4_clustering_curves.csv sha256=99898d711057f91b72dcd49988471268456e5e2088d806b2604048b1c66f9a23
+  release_run/fig_data/coverage_daily.csv sha256=0df1c63b6e9f951d402c35b49cf31942ddb3b18c36de055a92e796c3df719b03
+  release_run/fig_data/gap_recovery_curves.csv sha256=5f6c25751cdcd3a6adb51046be5bc3e8c78e3d2018a2a1b65961bae7cbfd6a72
+  release_run/fig_data/mae_by_phase.csv sha256=0fac7cf517c87323144f2bdba0de6234aa87f3b798808241874597d2a1db99c3
+  release_run/shuffle_agg/shuffled_label_permutations.csv sha256=e39d1095da4a92a66d460818c41e818e92e4e5e7475fb0db6b2b18386ee1fb6a
+  release_run/controls/controls.csv sha256=48e1c072c80d5983d067645f8d15204adffd05ba859ba154fcfdccc73529f242
+  release_run/model_family/model_family.csv sha256=a6ee10f99d36fd84327ff5cb7cdddc59a6de889495c494e57e3095b0f5e9f7f1
+  release_run/model_family/missing_data.csv sha256=65c744286f88abfb37e4b8c0efe6491caa939449ea63f9ea2d6d80738df307f8
+  release_run/et_fusion/et_fusion_preds.csv sha256=3e7221e4a88152c0e7e1107d17c8f1402822fab9a91bb49c86a5996bee37b18d
+  release_run/et_fusion/et_fusion_metrics.csv sha256=50511716e2d9296cf5a1efd87af7ebe67f0a68fdf2ab85c105df8ca077dbe1f9
+  release_run/et_fusion/et_fusion_paired.csv sha256=5f69651541efc7a07bc6519e41065d910d1734b5f9d5d2d91d232bbf95509584
+  release_run/valid_windows/valid_windows.csv sha256=0e1a55a3ef240de670a38b4d2bfd391e0816554154b4cc48456fa0139e541260
+  release_run/body_size/body_size_daily.csv sha256=51d972e5b3767f205edf8a91dd3a1df5f0543cf6001943c25ad59aa00a9367d9
+  release_run/body_size/body_size_metrics.csv sha256=8586869da0ba58ee4dfa56f53becc326bb672ea762c5b0fc2f6e2518b171e0f9
+  release_run/baselines/baselines.csv sha256=d368bfab425904aa7f84751e2966e91273c17cd1362fc781cfb8419f5af9e76b
+  release_run/controls_thermal/controls_thermal.csv sha256=47b859e7e65a3acbee2795dd3d0504bb7d128a8693775a2a6550419cd213acf1

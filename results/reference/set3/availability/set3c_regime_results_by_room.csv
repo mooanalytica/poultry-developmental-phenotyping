@@ -1,0 +1,61 @@
+regime,heldout,n_anchors,model,MAE,RMSE,R2,n,n_train_windows,n_features
+"optical flow  (absent: audio, tracking, morphometry)",room2,53,A: primary complete-case fused,53.54522855452277,64.23596300582457,-1.7126540746245484,53,,
+"optical flow  (absent: audio, tracking, morphometry)",room2,53,B: fused trained on all hours,19.599135397361213,26.988761085253536,0.5211452124896514,53,,
+"optical flow  (absent: audio, tracking, morphometry)",room2,53,C: regime-specific (present blocks only),19.072275447965666,29.634357402171084,0.4226635667103139,53,13824.0,104.0
+"tracking + morphometry  (absent: audio, optical flow)",room2,43,A: primary complete-case fused,33.625210420330596,36.44936276204553,0.10395193430072625,43,,
+"tracking + morphometry  (absent: audio, optical flow)",room2,43,B: fused trained on all hours,21.36537764721038,25.374035059894126,0.565759328243102,43,,
+"tracking + morphometry  (absent: audio, optical flow)",room2,43,C: regime-specific (present blocks only),30.633855779021328,34.54907157315036,0.1949475259251472,43,13372.0,81.0
+tracking + morphometry + optical flow  (absent: audio),room2,104,A: primary complete-case fused,27.910515052857043,31.85540225918981,0.1694671709952329,104,,
+tracking + morphometry + optical flow  (absent: audio),room2,104,B: fused trained on all hours,19.014538163451636,23.036756614038694,0.5656565420994696,104,,
+tracking + morphometry + optical flow  (absent: audio),room2,104,C: regime-specific (present blocks only),18.943344039628553,22.799438305153075,0.5745594200389291,104,9796.0,183.0
+"audio  (absent: tracking, morphometry, optical flow)",room2,1671,A: primary complete-case fused,46.75327810639369,58.63318738019287,-0.5091520816847137,1671,,
+"audio  (absent: tracking, morphometry, optical flow)",room2,1671,B: fused trained on all hours,23.576863444278327,30.46892336333428,0.5924694067793081,1671,,
+"audio  (absent: tracking, morphometry, optical flow)",room2,1671,C: regime-specific (present blocks only),31.30680094272182,38.94041269961462,0.33434821690024175,1671,23900.0,152.0
+"audio + optical flow  (absent: tracking, morphometry)",room2,385,A: primary complete-case fused,36.98426662218415,48.5717400247064,-0.15024399397646349,385,,
+"audio + optical flow  (absent: tracking, morphometry)",room2,385,B: fused trained on all hours,15.409019189583114,18.743470858241512,0.8287136790706648,385,,
+"audio + optical flow  (absent: tracking, morphometry)",room2,385,C: regime-specific (present blocks only),16.367986301235792,19.415560146699576,0.8162097367321953,385,11616.0,254.0
+audio + tracking + optical flow  (absent: morphometry),room2,40,A: primary complete-case fused,39.71856562547116,43.443665047668034,-9.545087282937295,40,,
+audio + tracking + optical flow  (absent: morphometry),room2,40,B: fused trained on all hours,10.66035892959447,12.416380120983339,0.13863491235076542,40,,
+audio + tracking + optical flow  (absent: morphometry),room2,40,C: regime-specific (present blocks only),8.33263661733405,9.968628807693904,0.4447761472996383,40,8532.0,286.0
+audio + tracking + morphometry  (absent: optical flow),room2,366,A: primary complete-case fused,16.38192049775582,20.20038088385903,0.793711057661298,366,,
+audio + tracking + morphometry  (absent: optical flow),room2,366,B: fused trained on all hours,15.900627749667931,19.409543332500263,0.8095471537007283,366,,
+audio + tracking + morphometry  (absent: optical flow),room2,366,C: regime-specific (present blocks only),14.292715964485057,18.28911591768392,0.8309005256095904,366,11304.0,231.0
+audio + tracking + morphometry + optical flow  (all four blocks),room2,1006,A: primary complete-case fused,18.09592854905291,23.185446402727557,0.695435928215,1006,,
+audio + tracking + morphometry + optical flow  (all four blocks),room2,1006,B: fused trained on all hours,14.001291660098738,17.31137336425024,0.8302105145231848,1006,,
+audio + tracking + morphometry + optical flow  (all four blocks),room2,1006,C: regime-specific (present blocks only),14.27875527785158,18.39288753164326,0.808332897974237,1006,8336.0,333.0
+"optical flow  (absent: audio, tracking, morphometry)",room6,165,A: primary complete-case fused,42.980376842088596,56.55670179532535,-0.3610195219868857,165,,
+"optical flow  (absent: audio, tracking, morphometry)",room6,165,B: fused trained on all hours,37.77893813945081,44.661245721953925,0.15129283237915625,165,,
+"optical flow  (absent: audio, tracking, morphometry)",room6,165,C: regime-specific (present blocks only),24.306222249299466,33.71490128162584,0.5163402025690875,165,13504.0,104.0
+"tracking + morphometry  (absent: audio, optical flow)",room6,131,A: primary complete-case fused,20.39526371276694,28.995090122345513,0.6225033359896215,131,,
+"tracking + morphometry  (absent: audio, optical flow)",room6,131,B: fused trained on all hours,16.67777236878845,24.193588296220515,0.7371761552924901,131,,
+"tracking + morphometry  (absent: audio, optical flow)",room6,131,C: regime-specific (present blocks only),14.892747764806977,22.198108389202975,0.7787434544965316,131,12932.0,81.0
+tracking + morphometry + optical flow  (absent: audio),room6,365,A: primary complete-case fused,24.836016682421906,34.28380686501947,0.4088815070344931,365,,
+tracking + morphometry + optical flow  (absent: audio),room6,365,B: fused trained on all hours,24.241331446204978,33.27679913542315,0.44309700043984956,365,,
+tracking + morphometry + optical flow  (absent: audio),room6,365,C: regime-specific (present blocks only),19.89180867104018,27.635338730970037,0.6159161458981666,365,9480.0,183.0
+"audio  (absent: tracking, morphometry, optical flow)",room6,1106,A: primary complete-case fused,38.91087531583707,49.370736724115,-0.12765045509091166,1106,,
+"audio  (absent: tracking, morphometry, optical flow)",room6,1106,B: fused trained on all hours,48.08551942199604,56.63603042364069,-0.4839555636815138,1106,,
+"audio  (absent: tracking, morphometry, optical flow)",room6,1106,C: regime-specific (present blocks only),58.08370613501398,64.76093542227481,-0.9402670568758402,1106,27616.0,152.0
+"audio + optical flow  (absent: tracking, morphometry)",room6,296,A: primary complete-case fused,39.67887020598674,49.396269292391416,-0.2962114818748529,296,,
+"audio + optical flow  (absent: tracking, morphometry)",room6,296,B: fused trained on all hours,46.793050850911875,57.21974752531093,-0.7393197938302292,296,,
+"audio + optical flow  (absent: tracking, morphometry)",room6,296,C: regime-specific (present blocks only),25.98846992844231,30.321784526741464,0.5115759062126936,296,12796.0,254.0
+audio + tracking + morphometry  (absent: optical flow),room6,309,A: primary complete-case fused,17.943752669783642,25.340879528465614,0.6568703876471131,309,,
+audio + tracking + morphometry  (absent: optical flow),room6,309,B: fused trained on all hours,17.696900208418132,22.110825440363385,0.7387689819020562,309,,
+audio + tracking + morphometry  (absent: optical flow),room6,309,C: regime-specific (present blocks only),12.748035355629687,17.282345954804185,0.8404046549135066,309,12260.0,231.0
+audio + tracking + morphometry + optical flow  (all four blocks),room6,824,A: primary complete-case fused,24.051122550625607,31.88686935380711,0.45541630793374877,824,,
+audio + tracking + morphometry + optical flow  (all four blocks),room6,824,B: fused trained on all hours,24.624981870647268,33.498236758811245,0.39898575906060496,824,,
+audio + tracking + morphometry + optical flow  (all four blocks),room6,824,C: regime-specific (present blocks only),10.79813858342624,14.646030764118704,0.8851103910464074,824,9064.0,333.0
+"audio  (absent: tracking, morphometry, optical flow)",room7,1194,A: primary complete-case fused,31.430671567533572,43.30812652152514,-0.17126299465500994,1194,,
+"audio  (absent: tracking, morphometry, optical flow)",room7,1194,B: fused trained on all hours,24.216288515402628,30.740517527493704,0.4098832010477933,1194,,
+"audio  (absent: tracking, morphometry, optical flow)",room7,1194,C: regime-specific (present blocks only),42.27054693051543,52.2634046700467,-0.7057328948713311,1194,24212.0,152.0
+"audio + optical flow  (absent: tracking, morphometry)",room7,475,A: primary complete-case fused,47.6695364570488,59.75255945404867,-0.7702682291507881,475,,
+"audio + optical flow  (absent: tracking, morphometry)",room7,475,B: fused trained on all hours,19.37913711814076,25.14903357337122,0.6864053455124189,475,,
+"audio + optical flow  (absent: tracking, morphometry)",room7,475,C: regime-specific (present blocks only),21.134686669420798,30.11903602347023,0.5502116675089174,475,10268.0,254.0
+audio + tracking + optical flow  (absent: morphometry),room7,33,A: primary complete-case fused,90.8169775000496,97.13663560106527,-17.552403164626032,33,,
+audio + tracking + optical flow  (absent: morphometry),room7,33,B: fused trained on all hours,8.353000840771973,9.585117370726023,0.8193537588376602,33,,
+audio + tracking + optical flow  (absent: morphometry),room7,33,C: regime-specific (present blocks only),13.651604252064898,15.616838833023138,0.5204649945617111,33,7544.0,286.0
+audio + tracking + morphometry  (absent: optical flow),room7,433,A: primary complete-case fused,9.145939863299256,14.783873211451407,0.8818055107933085,433,,
+audio + tracking + morphometry  (absent: optical flow),room7,433,B: fused trained on all hours,8.474013147764799,11.920416939419159,0.9231571150569939,433,,
+audio + tracking + morphometry  (absent: optical flow),room7,433,C: regime-specific (present blocks only),8.957149940915132,13.44386183726348,0.9022607841025205,433,10020.0,231.0
+audio + tracking + morphometry + optical flow  (all four blocks),room7,1260,A: primary complete-case fused,15.318450068230446,23.44978344345952,0.6917322780414903,1260,,
+audio + tracking + morphometry + optical flow  (all four blocks),room7,1260,B: fused trained on all hours,9.449768076053857,12.70684431329746,0.9094839073980506,1260,,
+audio + tracking + morphometry + optical flow  (all four blocks),room7,1260,C: regime-specific (present blocks only),16.035715810794443,20.875149078168246,0.7557078275906773,1260,7320.0,333.0

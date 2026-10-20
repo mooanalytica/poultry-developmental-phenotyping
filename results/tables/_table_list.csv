@@ -1,0 +1,25 @@
+table,caption,rows
+table01_data_coverage,"Table 1. Coverage per room and modality, with the denominator stated for every row",92
+table01b_key_dates,Table 1b. Key dates and reference periods,34
+table02_loro,Table 2. Leave-one-room-out performance (MAE and RMSE in days); V2 and V3 are labelled extensions,4
+table03_growth_plateau,"Table 3. MAE by growth (<=70 d) and plateau (>70 d) phase, leave-one-room-out",4
+table04_ageblock,Table 4. Age-block MAE (days) per block (block edges = quintiles of age of the complete-case windows); pooled fold-mean also given without block 1 (its relative-morphometry reference is empty),6
+table05_season,Table 5. Seasonal extrapolation (the held-out season is the test set; the summer-held-out fold has no relative morphometry features),12
+table06_paired_fusion,"Table 6. Paired MAE differences (days, first model minus second; same rows) with 95% room-day bootstrap intervals; conditional on this cohort and these rooms",4
+table08_detection,"Table 8. Detection of injected delays on the calibrated pipeline (in-fold calibration, target specificity 0.95; matched anchors, same-hour rule; trailing 7-day windows with >= 4 days of data). Intervals: 95% room-week bootstrap with the calibration held fixed; conditional on this cohort and these rooms, not new farms",16
+table08b_per_room_specificity,"Table 8b. Achieved specificity and sensitivity per held-out room (all-sensor, same-hour rule; target specificity 0.95)",8
+table08c_perturbation_manifest,"Table 8c. Perturbation manifest summed over rooms (all-sensor): eligible, used and dropped anchors and window counts, both matching rules",16
+table08d_sparse_blocks,"Table 8d. Non-overlapping 7-day blocks (4-of-7-day rule): block counts, AUC and sensitivity; growth cells are not estimable",16
+table09_shuffled_label,"Table 9. Shuffled-label control: age labels of the training rooms permuted as whole room-day blocks (100 permutations), evaluated against the true ages of the held-out room",4
+table10_gru_vs_hgb,"Table 10. GRU (time-bounded 24 h sequences, training-room imputation) against HGB fused; GRU headline = mean over 5 seeds with the range in brackets (seed 0 pre-declared)",4
+table10b_gru_seeds,"Table 10b. Time-bounded GRU, MAE (days) per seed",5
+table10c_gru_legacy_spans,Table 10c. Revision 3 GRU sequences: real-time span of '24-row' sequences (hours),6
+table11_availability_regimes,"Table 11. Modality-availability regimes, named by the blocks present; models A (primary complete-case model applied unchanged), B (trained on all hours), C (regime-specific). Unscored regimes have fewer than 30 anchors per held-out room",11
+table12_classification,"Table 12. Stage classification (classes (0,60], (60,110], (110,200] d): per-class recall, supports, balanced accuracy and macro-F1 (leave-one-room-out)",5
+table12b_confusion,Table 12b. Confusion-matrix counts per held-out room and pooled,36
+table13_attribution,Table 13. Share of total |SHAP| by block and age band (mean of the three rooms),5
+table14_daily_demeaning,"Table 14. Same-day room demeaning test. NOTE: the shares here are the morphometry share of (morphometry + bioacoustics) |SHAP| only (demeaning comparison definition), not the share of total used in Table 13",2
+table15_clustering,"Table 15. Unsupervised clustering per room (primary pipeline): crossover/transition day, k=2 boundary, silhouette, ARI vs day 70",15
+table16_old_vs_new,"Table 16. Earlier (Step 0 settings, same scripts) against the primary pipeline",16
+table17_room_identification,"Table 17. Room identification from audio features (age-block cross-validation; chance 0.333), before and after the V2 first-week reference",6
+table18_cumulative,"Table 18. Cumulative effect of each change on leave-one-room-out MAE (days), age-block (12 h purge) and seasonal MAE; Steps 0-2 use the row-based slope, Step 3 the time-based slope",10

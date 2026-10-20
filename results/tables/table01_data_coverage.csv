@@ -1,0 +1,93 @@
+room,quantity,denominator,count,denominator_n,percent
+room2,calendar days from placement (5 Jun 2025) to the room's last observed day,-,182,182,100.0
+room2,hours from placement to the room's last observed hour,-,"4,366","4,366",100.0
+room2,hours with at least one modality observed,hours from placement to last observed hour,"3,718","4,366",85.2
+room2,observed hours: audio,hours from placement to last observed hour,"3,491","4,366",80.0
+room2,observed hours: audio,hours from the modality's first to last observed hour,"3,491","4,327",80.7
+room2,days with data: audio,calendar days from placement to last observed day,159,182,87.4
+room2,observed hours: tracking (YOLO),hours from placement to last observed hour,"1,609","4,366",36.9
+room2,observed hours: tracking (YOLO),hours from the modality's first to last observed hour,"1,609","3,678",43.7
+room2,days with data: tracking (YOLO),calendar days from placement to last observed day,137,182,75.3
+room2,observed hours: optical flow,hours from placement to last observed hour,"1,608","4,366",36.8
+room2,observed hours: optical flow,hours from the modality's first to last observed hour,"1,608","3,677",43.7
+room2,days with data: optical flow,calendar days from placement to last observed day,137,182,75.3
+room2,observed hours: morphometry (before QC filter),hours from placement to last observed hour,"1,606","4,366",36.8
+room2,observed hours: morphometry (before QC filter),hours from the modality's first to last observed hour,"1,606","3,678",43.7
+room2,days with data: morphometry (before QC filter),calendar days from placement to last observed day,137,182,75.3
+room2,observed hours: morphometry (after QC filter),hours from placement to last observed hour,"1,519","4,366",34.8
+room2,observed hours: morphometry (after QC filter),hours from the modality's first to last observed hour,"1,519","3,613",42.0
+room2,days with data: morphometry (after QC filter),calendar days from placement to last observed day,128,182,70.3
+room2,"complete-case hours, primary (audio + tracking + morphometry after QC)",hours from placement to last observed hour,"1,372","4,366",31.4
+room2,"complete-case hours, primary (audio + tracking + morphometry after QC)",hours with at least one modality observed,"1,372","3,718",36.9
+room2,complete-case hours before QC filter (audio + tracking + morphometry),hours from placement to last observed hour,"1,433","4,366",32.8
+room2,hours removed by the QC filter among complete-case-eligible hours,complete-case hours before QC filter,61,"1,433",4.3
+room2,complete-case hours that also have optical flow,"complete-case hours, primary","1,006","1,372",73.3
+room6,calendar days from placement (5 Jun 2025) to the room's last observed day,-,182,182,100.0
+room6,hours from placement to the room's last observed hour,-,"4,366","4,366",100.0
+room6,hours with at least one modality observed,hours from placement to last observed hour,"3,256","4,366",74.6
+room6,observed hours: audio,hours from placement to last observed hour,"2,562","4,366",58.7
+room6,observed hours: audio,hours from the modality's first to last observed hour,"2,562","4,274",59.9
+room6,days with data: audio,calendar days from placement to last observed day,126,182,69.2
+room6,observed hours: tracking (YOLO),hours from placement to last observed hour,"1,689","4,366",38.7
+room6,observed hours: tracking (YOLO),hours from the modality's first to last observed hour,"1,689","3,677",45.9
+room6,days with data: tracking (YOLO),calendar days from placement to last observed day,144,182,79.1
+room6,observed hours: optical flow,hours from placement to last observed hour,"1,688","4,366",38.7
+room6,observed hours: optical flow,hours from the modality's first to last observed hour,"1,688","3,676",45.9
+room6,days with data: optical flow,calendar days from placement to last observed day,144,182,79.1
+room6,observed hours: morphometry (before QC filter),hours from placement to last observed hour,"1,686","4,366",38.6
+room6,observed hours: morphometry (before QC filter),hours from the modality's first to last observed hour,"1,686","3,677",45.9
+room6,days with data: morphometry (before QC filter),calendar days from placement to last observed day,144,182,79.1
+room6,observed hours: morphometry (after QC filter),hours from placement to last observed hour,"1,629","4,366",37.3
+room6,observed hours: morphometry (after QC filter),hours from the modality's first to last observed hour,"1,629","3,613",45.1
+room6,days with data: morphometry (after QC filter),calendar days from placement to last observed day,138,182,75.8
+room6,"complete-case hours, primary (audio + tracking + morphometry after QC)",hours from placement to last observed hour,"1,133","4,366",26.0
+room6,"complete-case hours, primary (audio + tracking + morphometry after QC)",hours with at least one modality observed,"1,133","3,256",34.8
+room6,complete-case hours before QC filter (audio + tracking + morphometry),hours from placement to last observed hour,"1,159","4,366",26.5
+room6,hours removed by the QC filter among complete-case-eligible hours,complete-case hours before QC filter,26,"1,159",2.2
+room6,complete-case hours that also have optical flow,"complete-case hours, primary",824,"1,133",72.7
+room7,calendar days from placement (5 Jun 2025) to the room's last observed day,-,182,182,100.0
+room7,hours from placement to the room's last observed hour,-,"4,366","4,366",100.0
+room7,hours with at least one modality observed,hours from placement to last observed hour,"3,438","4,366",78.7
+room7,observed hours: audio,hours from placement to last observed hour,"3,413","4,366",78.2
+room7,observed hours: audio,hours from the modality's first to last observed hour,"3,413","3,676",92.8
+room7,days with data: audio,calendar days from placement to last observed day,149,182,81.9
+room7,observed hours: tracking (YOLO),hours from placement to last observed hour,"1,769","4,366",40.5
+room7,observed hours: tracking (YOLO),hours from the modality's first to last observed hour,"1,769","3,677",48.1
+room7,days with data: tracking (YOLO),calendar days from placement to last observed day,148,182,81.3
+room7,observed hours: optical flow,hours from placement to last observed hour,"1,768","4,366",40.5
+room7,observed hours: optical flow,hours from the modality's first to last observed hour,"1,768","3,676",48.1
+room7,days with data: optical flow,calendar days from placement to last observed day,148,182,81.3
+room7,observed hours: morphometry (before QC filter),hours from placement to last observed hour,"1,762","4,366",40.4
+room7,observed hours: morphometry (before QC filter),hours from the modality's first to last observed hour,"1,762","3,677",47.9
+room7,days with data: morphometry (before QC filter),calendar days from placement to last observed day,148,182,81.3
+room7,observed hours: morphometry (after QC filter),hours from placement to last observed hour,"1,714","4,366",39.3
+room7,observed hours: morphometry (after QC filter),hours from the modality's first to last observed hour,"1,714","3,614",47.4
+room7,days with data: morphometry (after QC filter),calendar days from placement to last observed day,143,182,78.6
+room7,"complete-case hours, primary (audio + tracking + morphometry after QC)",hours from placement to last observed hour,"1,693","4,366",38.8
+room7,"complete-case hours, primary (audio + tracking + morphometry after QC)",hours with at least one modality observed,"1,693","3,438",49.2
+room7,complete-case hours before QC filter (audio + tracking + morphometry),hours from placement to last observed hour,"1,738","4,366",39.8
+room7,hours removed by the QC filter among complete-case-eligible hours,complete-case hours before QC filter,45,"1,738",2.6
+room7,complete-case hours that also have optical flow,"complete-case hours, primary","1,260","1,693",74.4
+all rooms,calendar days from placement (5 Jun 2025) to the room's last observed day,-,546,546,100.0
+all rooms,hours from placement to the room's last observed hour,-,"13,098","13,098",100.0
+all rooms,hours with at least one modality observed,hours from placement to last observed hour,"10,412","13,098",79.5
+all rooms,observed hours: audio,hours from placement to last observed hour,"9,466","13,098",72.3
+all rooms,observed hours: audio,hours from the modality's first to last observed hour,"9,466","12,277",77.1
+all rooms,days with data: audio,calendar days from placement to last observed day,434,546,79.5
+all rooms,observed hours: tracking (YOLO),hours from placement to last observed hour,"5,067","13,098",38.7
+all rooms,observed hours: tracking (YOLO),hours from the modality's first to last observed hour,"5,067","11,032",45.9
+all rooms,days with data: tracking (YOLO),calendar days from placement to last observed day,429,546,78.6
+all rooms,observed hours: optical flow,hours from placement to last observed hour,"5,064","13,098",38.7
+all rooms,observed hours: optical flow,hours from the modality's first to last observed hour,"5,064","11,029",45.9
+all rooms,days with data: optical flow,calendar days from placement to last observed day,429,546,78.6
+all rooms,observed hours: morphometry (before QC filter),hours from placement to last observed hour,"5,054","13,098",38.6
+all rooms,observed hours: morphometry (before QC filter),hours from the modality's first to last observed hour,"5,054","11,032",45.8
+all rooms,days with data: morphometry (before QC filter),calendar days from placement to last observed day,429,546,78.6
+all rooms,observed hours: morphometry (after QC filter),hours from placement to last observed hour,"4,862","13,098",37.1
+all rooms,observed hours: morphometry (after QC filter),hours from the modality's first to last observed hour,"4,862","10,840",44.9
+all rooms,days with data: morphometry (after QC filter),calendar days from placement to last observed day,409,546,74.9
+all rooms,"complete-case hours, primary (audio + tracking + morphometry after QC)",hours from placement to last observed hour,"4,198","13,098",32.1
+all rooms,"complete-case hours, primary (audio + tracking + morphometry after QC)",hours with at least one modality observed,"4,198","10,412",40.3
+all rooms,complete-case hours before QC filter (audio + tracking + morphometry),hours from placement to last observed hour,"4,330","13,098",33.1
+all rooms,hours removed by the QC filter among complete-case-eligible hours,complete-case hours before QC filter,132,"4,330",3.0
+all rooms,complete-case hours that also have optical flow,"complete-case hours, primary","3,090","4,198",73.6

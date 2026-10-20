@@ -1,0 +1,17 @@
+rule,phase,k,n_eligible_anchors,n_used_anchors,n_dropped_no_source,n_dropped_source_features_all_nan,n_pos_windows,n_neg_windows
+rule=nearest_pm1h,growth (<=70 d),k=10 d,850,327,436,87,33,33
+rule=nearest_pm1h,growth (<=70 d),k=15 d,850,255,525,70,23,23
+rule=nearest_pm1h,growth (<=70 d),k=20 d,850,210,586,54,17,17
+rule=nearest_pm1h,growth (<=70 d),k=5 d,850,470,268,112,47,47
+rule=nearest_pm1h,plateau (>70 d),k=10 d,3348,2291,574,483,199,199
+rule=nearest_pm1h,plateau (>70 d),k=15 d,3348,2262,579,507,204,204
+rule=nearest_pm1h,plateau (>70 d),k=20 d,3348,2165,672,511,196,196
+rule=nearest_pm1h,plateau (>70 d),k=5 d,3348,2331,533,484,210,210
+rule=same_hour,growth (<=70 d),k=10 d,850,321,452,77,33,33
+rule=same_hour,growth (<=70 d),k=15 d,850,251,537,62,23,23
+rule=same_hour,growth (<=70 d),k=20 d,850,207,592,51,17,17
+rule=same_hour,growth (<=70 d),k=5 d,850,465,282,103,47,47
+rule=same_hour,plateau (>70 d),k=10 d,3348,2221,694,433,199,199
+rule=same_hour,plateau (>70 d),k=15 d,3348,2181,728,439,204,204
+rule=same_hour,plateau (>70 d),k=20 d,3348,2079,841,428,196,196
+rule=same_hour,plateau (>70 d),k=5 d,3348,2280,622,446,210,210

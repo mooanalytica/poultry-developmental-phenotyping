@@ -1,0 +1,331 @@
+tag,audio_ref,scale_filter,slope_mode,slope_min_frac,analysis,model,fold,metric,value
+primary,none,B_exclude,time,0.5,LORO,fused,room2,MAE,18.02086496648054
+primary,none,B_exclude,time,0.5,LORO,fused,room2,RMSE,22.88120563080418
+primary,none,B_exclude,time,0.5,LORO,fused,room2,R2,0.7131085173119545
+primary,none,B_exclude,time,0.5,LORO,fused,room2,n,1372.0
+primary,none,B_exclude,time,0.5,LORO,fused,room2,n_train,11304.0
+primary,none,B_exclude,time,0.5,LORO,fused,room2,n_features,333.0
+primary,none,B_exclude,time,0.5,LORO,fused,room6,MAE,23.640724825532384
+primary,none,B_exclude,time,0.5,LORO,fused,room6,RMSE,32.095235471684035
+primary,none,B_exclude,time,0.5,LORO,fused,room6,R2,0.4486515191107474
+primary,none,B_exclude,time,0.5,LORO,fused,room6,n,1133.0
+primary,none,B_exclude,time,0.5,LORO,fused,room6,n_train,12260.0
+primary,none,B_exclude,time,0.5,LORO,fused,room6,n_features,333.0
+primary,none,B_exclude,time,0.5,LORO,fused,room7,MAE,14.07958757648522
+primary,none,B_exclude,time,0.5,LORO,fused,room7,RMSE,22.493351532036964
+primary,none,B_exclude,time,0.5,LORO,fused,room7,R2,0.7191365874813593
+primary,none,B_exclude,time,0.5,LORO,fused,room7,n,1693.0
+primary,none,B_exclude,time,0.5,LORO,fused,room7,n_train,10020.0
+primary,none,B_exclude,time,0.5,LORO,fused,room7,n_features,333.0
+primary,none,B_exclude,time,0.5,LORO,fused,macro,MAE,18.58039245616605
+primary,none,B_exclude,time,0.5,LORO,fused,macro,RMSE,25.82326421150839
+primary,none,B_exclude,time,0.5,LORO,fused,macro,R2,0.6269655413013537
+primary,none,B_exclude,time,0.5,LORO,morph_only,room2,MAE,19.859763374247528
+primary,none,B_exclude,time,0.5,LORO,morph_only,room2,RMSE,25.431380581477015
+primary,none,B_exclude,time,0.5,LORO,morph_only,room2,R2,0.6455950972841409
+primary,none,B_exclude,time,0.5,LORO,morph_only,room2,n,1372.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,room2,n_train,11304.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,room2,n_features,49.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,room6,MAE,17.723872731444292
+primary,none,B_exclude,time,0.5,LORO,morph_only,room6,RMSE,24.04634608167152
+primary,none,B_exclude,time,0.5,LORO,morph_only,room6,R2,0.6905124120029293
+primary,none,B_exclude,time,0.5,LORO,morph_only,room6,n,1133.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,room6,n_train,12260.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,room6,n_features,49.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,room7,MAE,13.698150448398716
+primary,none,B_exclude,time,0.5,LORO,morph_only,room7,RMSE,21.84782226947232
+primary,none,B_exclude,time,0.5,LORO,morph_only,room7,R2,0.735026077071611
+primary,none,B_exclude,time,0.5,LORO,morph_only,room7,n,1693.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,room7,n_train,10020.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,room7,n_features,49.0
+primary,none,B_exclude,time,0.5,LORO,morph_only,macro,MAE,17.093928851363515
+primary,none,B_exclude,time,0.5,LORO,morph_only,macro,RMSE,23.775182977540283
+primary,none,B_exclude,time,0.5,LORO,morph_only,macro,R2,0.6903778621195604
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room2,MAE,25.985872756903717
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room2,RMSE,32.68896484138781
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room2,R2,0.4144524301661137
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room2,n,1372.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room2,n_train,11304.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room2,n_features,42.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room6,MAE,20.65067029615614
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room6,RMSE,26.60733732523185
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room6,R2,0.6210796926443876
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room6,n,1133.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room6,n_train,12260.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room6,n_features,42.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room7,MAE,14.21392824801122
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room7,RMSE,21.354465132192807
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room7,R2,0.7468579905243032
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room7,n,1693.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room7,n_train,10020.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,room7,n_features,42.0
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,macro,MAE,20.283490433690357
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,macro,RMSE,26.883589099604155
+primary,none,B_exclude,time,0.5,LORO,morph_body_only,macro,R2,0.5941300377782682
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,MAE,33.64810960066755
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,RMSE,42.91297336498485
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,R2,-15.7941904518642
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,n,839.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,n_train,13392.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,MAE,21.52999833687741
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,RMSE,24.693965645228
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,R2,-3.50815416019685
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,n,842.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,n_train,13336.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,MAE,15.014075593791746
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,RMSE,18.48592275197528
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,R2,-4.350729310793502
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,n,835.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,n_train,13288.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,MAE,13.03973783301256
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,RMSE,17.56469454287425
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,R2,-5.912334305440757
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,n,840.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,n_train,13194.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,MAE,19.35799792857969
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,RMSE,24.546065506599675
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,R2,-15.711423521365989
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,n,842.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,n_train,13388.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean,MAE,20.517983858585794
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean excl. block 1,MAE,17.23545242306535
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean,RMSE,25.640724362332413
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean excl. block 1,RMSE,21.322662111669302
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean,R2,-9.05536634993226
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean excl. block 1,R2,-7.370660324449274
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,MAE,63.71182982881825
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,RMSE,69.17230766741696
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,R2,-6.612256931417414
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,n,2908.0
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,n_train,5056.0
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,MAE,47.382251852131326
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,RMSE,54.282683779580765
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,R2,-11.518197642881796
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,n,1290.0
+primary,none,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,n_train,11565.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,MAE,37.123731773172935
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,RMSE,46.14333215761805
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,R2,-18.417788481038244
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,n,839.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,n_train,13276.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,MAE,22.860915647387703
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,RMSE,25.39668680518531
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,R2,-3.7683838230340294
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,n,842.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,n_train,13162.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,MAE,14.413177551621338
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,RMSE,18.0562263622753
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,R2,-4.104870088596925
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,n,835.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,n_train,13158.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,MAE,13.955603192460066
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,RMSE,17.835711386368065
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,R2,-6.1272895549002175
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,n,840.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,n_train,13042.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,MAE,20.092181012837237
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,RMSE,25.13905167705932
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,R2,-16.52860883203915
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,n,842.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,n_train,13244.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean,MAE,21.689121835495857
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean excl. block 1,MAE,17.830469351076587
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean,RMSE,26.51420167770121
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean excl. block 1,RMSE,21.606919057721996
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean,R2,-9.789388155921714
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean excl. block 1,R2,-7.632288074642581
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,MAE,63.89409039041942
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,RMSE,69.30177512394998
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,R2,-6.640778803162908
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,n,2908.0
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,n_train,5028.0
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,MAE,50.736848922230706
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,RMSE,56.79959967721204
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,R2,-12.705968550975964
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,n,1290.0
+primary,none,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,n_train,11524.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,31-70d,MAE,34.43504606774216
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,31-70d,RMSE,44.23439775422413
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,31-70d,R2,-16.84440606078133
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,31-70d,n,839.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,31-70d,n_train,13392.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,70-110d,MAE,22.189781914743403
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,70-110d,RMSE,26.3277473891546
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,70-110d,R2,-4.124417245883804
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,70-110d,n,842.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,70-110d,n_train,13336.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,110-138d,MAE,12.455350328916536
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,110-138d,RMSE,15.497162249308802
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,110-138d,R2,-2.7604089099488407
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,110-138d,n,835.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,110-138d,n_train,13288.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,138-160d,MAE,17.319090899075174
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,138-160d,RMSE,22.33902617223422
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,138-160d,R2,-10.18077749064219
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,138-160d,n,840.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,138-160d,n_train,13194.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,160-182d,MAE,24.986792039945637
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,160-182d,RMSE,32.03480073432928
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,160-182d,R2,-27.463855223636124
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,160-182d,n,842.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,160-182d,n_train,13388.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,pooled fold-mean,MAE,22.27721225008458
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,pooled fold-mean excl. block 1,MAE,19.237753795670187
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,pooled fold-mean,RMSE,28.08662685985021
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,pooled fold-mean excl. block 1,RMSE,24.04968413625673
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,pooled fold-mean,R2,-12.274772986178458
+primary,none,B_exclude,time,0.5,AGEBLOCK_12h,morph_body_only,pooled fold-mean excl. block 1,R2,-11.13236471752774
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_summer_test_fall,MAE,62.02274733580824
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_summer_test_fall,RMSE,67.54143599073632
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_summer_test_fall,R2,-6.25754085205338
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_summer_test_fall,n,2908.0
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_summer_test_fall,n_train,5056.0
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_fall_test_summer,MAE,46.477099889031734
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_fall_test_summer,RMSE,53.435056256769975
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_fall_test_summer,R2,-11.130305069656988
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_fall_test_summer,n,1290.0
+primary,none,B_exclude,time,0.5,SEASON_12h,morph_body_only,train_fall_test_summer,n_train,11565.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,31-70d,MAE,37.544619782388686
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,31-70d,RMSE,46.68141598819988
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,31-70d,R2,-18.873296032355004
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,31-70d,n,839.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,31-70d,n_train,13276.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,70-110d,MAE,25.06203829822088
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,70-110d,RMSE,27.848555282991956
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,70-110d,R2,-4.733534357835849
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,70-110d,n,842.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,70-110d,n_train,13162.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,110-138d,MAE,12.560765668358512
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,110-138d,RMSE,15.358432493262844
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,110-138d,R2,-2.6933843058197557
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,110-138d,n,835.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,110-138d,n_train,13158.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,138-160d,MAE,17.620474740820928
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,138-160d,RMSE,22.166557043294397
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,138-160d,R2,-10.008800875351536
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,138-160d,n,840.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,138-160d,n_train,13042.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,160-182d,MAE,26.029670342136612
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,160-182d,RMSE,32.962787426737634
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,160-182d,R2,-29.136827168631516
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,160-182d,n,842.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,160-182d,n_train,13244.0
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,pooled fold-mean,MAE,23.763513766385124
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,pooled fold-mean excl. block 1,MAE,20.318237262384233
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,pooled fold-mean,RMSE,29.00354964689734
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,pooled fold-mean excl. block 1,RMSE,24.584083061571707
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,pooled fold-mean,R2,-13.08916854799873
+primary,none,B_exclude,time,0.5,AGEBLOCK_24h,morph_body_only,pooled fold-mean excl. block 1,R2,-11.643136676909664
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_summer_test_fall,MAE,62.14715775600011
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_summer_test_fall,RMSE,67.62441882992529
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_summer_test_fall,R2,-6.275385344281739
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_summer_test_fall,n,2908.0
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_summer_test_fall,n_train,5028.0
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_fall_test_summer,MAE,48.408074273354174
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_fall_test_summer,RMSE,54.64262625355455
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_fall_test_summer,R2,-11.684761620495571
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_fall_test_summer,n,1290.0
+primary,none,B_exclude,time,0.5,SEASON_24h,morph_body_only,train_fall_test_summer,n_train,11524.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room2,MAE,16.162571929586914
+V2,first_week,B_exclude,time,0.5,LORO,fused,room2,RMSE,21.4366804640374
+V2,first_week,B_exclude,time,0.5,LORO,fused,room2,R2,0.7481888736645698
+V2,first_week,B_exclude,time,0.5,LORO,fused,room2,n,1372.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room2,n_train,11304.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room2,n_features,333.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room6,MAE,23.762300305351985
+V2,first_week,B_exclude,time,0.5,LORO,fused,room6,RMSE,31.05881322426667
+V2,first_week,B_exclude,time,0.5,LORO,fused,room6,R2,0.4836849744819887
+V2,first_week,B_exclude,time,0.5,LORO,fused,room6,n,1133.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room6,n_train,12260.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room6,n_features,333.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room7,MAE,13.633840418556758
+V2,first_week,B_exclude,time,0.5,LORO,fused,room7,RMSE,22.129347366567817
+V2,first_week,B_exclude,time,0.5,LORO,fused,room7,R2,0.728153316431657
+V2,first_week,B_exclude,time,0.5,LORO,fused,room7,n,1693.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room7,n_train,10020.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,room7,n_features,333.0
+V2,first_week,B_exclude,time,0.5,LORO,fused,macro,MAE,17.852904217831888
+V2,first_week,B_exclude,time,0.5,LORO,fused,macro,RMSE,24.874947018290623
+V2,first_week,B_exclude,time,0.5,LORO,fused,macro,R2,0.6533423881927386
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,MAE,33.46476889230774
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,RMSE,43.02525236968985
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,R2,-15.882187235185498
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,n,839.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,31-70d,n_train,13392.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,MAE,21.739077803138244
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,RMSE,25.27620509763892
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,R2,-3.7232487776297343
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,n,842.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,70-110d,n_train,13336.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,MAE,13.349154221119408
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,RMSE,16.43661099312856
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,R2,-3.2301451208561227
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,n,835.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,110-138d,n_train,13288.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,MAE,13.090759243501394
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,RMSE,17.664584819309976
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,R2,-5.9911786423844235
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,n,840.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,138-160d,n_train,13194.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,MAE,19.807961990481378
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,RMSE,24.830962316509527
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,R2,-16.1016010009226
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,n,842.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,160-182d,n_train,13388.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean,MAE,20.29034443010963
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean excl. block 1,MAE,16.996738314560105
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean,RMSE,25.446723119255367
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean excl. block 1,RMSE,21.052090806646746
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean,R2,-8.985672155395676
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_12h,fused,pooled fold-mean excl. block 1,R2,-7.2615433854482205
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,MAE,63.13757939766716
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,RMSE,68.49845553885812
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,R2,-6.464667508740982
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,n,2908.0
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_summer_test_fall,n_train,5056.0
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,MAE,47.00718251645107
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,RMSE,54.421230811922776
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,R2,-11.582180199991
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,n,1290.0
+V2,first_week,B_exclude,time,0.5,SEASON_12h,fused,train_fall_test_summer,n_train,11565.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,MAE,35.53383034459969
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,RMSE,44.63686799617404
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,R2,-17.170600835789003
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,n,839.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,31-70d,n_train,13276.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,MAE,23.66687673150305
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,RMSE,26.34332928129195
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,R2,-4.130484741471995
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,n,842.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,70-110d,n_train,13162.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,MAE,13.962967637578029
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,RMSE,16.835837282019703
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,R2,-3.4381313606728723
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,n,835.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,110-138d,n_train,13158.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,MAE,13.724675442697844
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,RMSE,18.03450670665742
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,R2,-6.287055313076697
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,n,840.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,138-160d,n_train,13042.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,MAE,20.024240581278097
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,RMSE,25.056985436231464
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,R2,-16.414351615445366
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,n,842.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,160-182d,n_train,13244.0
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean,MAE,21.382518147531343
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean excl. block 1,MAE,17.844690098264255
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean,RMSE,26.181505340474917
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean excl. block 1,RMSE,21.567664676550137
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean,R2,-9.488124773291188
+V2,first_week,B_exclude,time,0.5,AGEBLOCK_24h,fused,pooled fold-mean excl. block 1,R2,-7.567505757666733
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,MAE,62.85256818870673
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,RMSE,68.19694247171658
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,R2,-6.399096941336694
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,n,2908.0
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_summer_test_fall,n_train,5028.0
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,MAE,51.36187594591948
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,RMSE,57.44344008646008
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,R2,-13.018452102780309
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,n,1290.0
+V2,first_week,B_exclude,time,0.5,SEASON_24h,fused,train_fall_test_summer,n_train,11524.0

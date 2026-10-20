@@ -1,0 +1,52 @@
+analysis,model,scope,metric,value
+complete_case_hours,-,room2,n,1400.0
+complete_case_hours,-,room6,n,1133.0
+complete_case_hours,-,room7,n,1719.0
+complete_case_hours,-,total,n,4252.0
+LORO,fused,room2,MAE,14.971719034808228
+LORO,fused,room2,RMSE,18.3780090678531
+LORO,fused,room2,R2,0.8191767604513337
+LORO,fused,room2,n,1400.0
+LORO,fused,room6,MAE,17.000201489010713
+LORO,fused,room6,RMSE,24.17506517442518
+LORO,fused,room6,R2,0.6871901954623472
+LORO,fused,room6,n,1133.0
+LORO,fused,room7,MAE,11.162228639255597
+LORO,fused,room7,RMSE,15.661412590884465
+LORO,fused,room7,R2,0.8698652355656141
+LORO,fused,room7,n,1719.0
+LORO,fused,macro,MAE,14.378049721024846
+LORO,fused,macro,RMSE,19.40482894438758
+LORO,fused,macro,R2,0.792077397159765
+LORO,morph_only,room2,MAE,16.625394546802315
+LORO,morph_only,room2,RMSE,21.725188235146067
+LORO,morph_only,room2,R2,0.7473121159714646
+LORO,morph_only,room2,n,1400.0
+LORO,morph_only,room6,MAE,15.531015126454545
+LORO,morph_only,room6,RMSE,20.533725075739195
+LORO,morph_only,room6,R2,0.7743265149569603
+LORO,morph_only,room6,n,1133.0
+LORO,morph_only,room7,MAE,11.573269519500494
+LORO,morph_only,room7,RMSE,16.206113140371418
+LORO,morph_only,room7,R2,0.8606557021734791
+LORO,morph_only,room7,n,1719.0
+LORO,morph_only,macro,MAE,14.576559730919117
+LORO,morph_only,macro,RMSE,19.48834215041889
+LORO,morph_only,macro,R2,0.7940981110339681
+AGEBLOCK(12h purge),fused,29-69d,MAE,27.257138239245702
+AGEBLOCK(12h purge),fused,29-69d,R2,-9.152291027672998
+AGEBLOCK(12h purge),fused,29-69d,n,849.0
+AGEBLOCK(12h purge),fused,69-109d,MAE,19.707384464659217
+AGEBLOCK(12h purge),fused,69-109d,R2,-2.996316139740235
+AGEBLOCK(12h purge),fused,69-109d,n,851.0
+AGEBLOCK(12h purge),fused,109-137d,MAE,13.8406755833681
+AGEBLOCK(12h purge),fused,109-137d,R2,-3.404655945159792
+AGEBLOCK(12h purge),fused,109-137d,n,849.0
+AGEBLOCK(12h purge),fused,137-160d,MAE,10.713733934817874
+AGEBLOCK(12h purge),fused,137-160d,R2,-2.5837774048439086
+AGEBLOCK(12h purge),fused,137-160d,n,852.0
+AGEBLOCK(12h purge),fused,160-182d,MAE,15.831404924640706
+AGEBLOCK(12h purge),fused,160-182d,R2,-7.734431819175713
+AGEBLOCK(12h purge),fused,160-182d,n,851.0
+AGEBLOCK(12h purge),fused,pooled fold-mean,MAE,17.47006742934632
+AGEBLOCK(12h purge),fused,pooled fold-mean,R2,-5.174294467318529

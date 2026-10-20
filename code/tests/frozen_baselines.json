@@ -1,0 +1,11 @@
+{
+ "step0_macro_MAE": {
+  "fused": 14.378049721024846,
+  "morph_only": 14.576559730919117
+ },
+ "primary_step3_macro_MAE": {
+  "fused": 18.58039245616605,
+  "morph_only": 17.093928851363515
+ },
+ "source": "appendix/v5_set1/step0_baseline.csv and appendix/v5_set1/step3_run_time50.csv (LORO, fresh fits, random_state=0)"
+}

@@ -1,0 +1,16 @@
+**Table 5. Seasonal extrapolation (the held-out season is the test set; the summer-held-out fold has no relative morphometry features)**
+
+| model | embargo | fold | MAE | R2 | n_test |
+|---|---|---|---|---|---|
+| primary fused | 12h | train_summer_test_fall | 63.71 | -6.612 | 2,908 |
+| primary fused | 12h | train_fall_test_summer | 47.38 | -11.518 | 1,290 |
+| primary fused | 24h | train_summer_test_fall | 63.89 | -6.641 | 2,908 |
+| primary fused | 24h | train_fall_test_summer | 50.74 | -12.706 | 1,290 |
+| V3 body-size only | 12h | train_summer_test_fall | 62.02 | -6.258 | 2,908 |
+| V3 body-size only | 12h | train_fall_test_summer | 46.48 | -11.130 | 1,290 |
+| V3 body-size only | 24h | train_summer_test_fall | 62.15 | -6.275 | 2,908 |
+| V3 body-size only | 24h | train_fall_test_summer | 48.41 | -11.685 | 1,290 |
+| V2 fused (audio first-week reference) | 12h | train_summer_test_fall | 63.14 | -6.465 | 2,908 |
+| V2 fused (audio first-week reference) | 12h | train_fall_test_summer | 47.01 | -11.582 | 1,290 |
+| V2 fused (audio first-week reference) | 24h | train_summer_test_fall | 62.85 | -6.399 | 2,908 |
+| V2 fused (audio first-week reference) | 24h | train_fall_test_summer | 51.36 | -13.018 | 1,290 |

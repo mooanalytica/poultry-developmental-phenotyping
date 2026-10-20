@@ -1,0 +1,7 @@
+metric,room2,room6,room7
+n_candidate_sequences,450.0,370.0,557.0
+median_span_h,47.0,49.0,49.0
+p90_span_h,73.7,139.0,62.0
+max_span_h,423.0,285.0,146.0
+share_gt_24h,1.0,1.0,1.0
+share_gt_72h,0.151,0.235,0.056

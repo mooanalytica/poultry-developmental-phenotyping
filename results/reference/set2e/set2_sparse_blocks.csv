@@ -1,0 +1,193 @@
+rule,mode,phase,k_days,test_room,n_blocks_pos,n_blocks_neg,n_blocks_per_room,AUC,sensitivity,achieved_specificity,estimable,threshold,n_inner_neg_blocks
+same_hour,all_sensor,growth (<=70 d),3,all rooms,10,10,3/3/4,0.79,0.5,0.7,True,7.022/3.525/6.928,7/7/6
+same_hour,all_sensor,growth (<=70 d),3,room2,3,3,3,0.6666666666666666,0.3333333333333333,0.6666666666666666,False,7.022,7
+same_hour,all_sensor,growth (<=70 d),3,room6,3,3,3,1.0,1.0,0.3333333333333333,False,3.525,7
+same_hour,all_sensor,growth (<=70 d),3,room7,4,4,4,0.9375,0.25,1.0,False,6.928,6
+same_hour,all_sensor,growth (<=70 d),5,all rooms,8,8,1/3/4,0.984375,0.5,0.75,False,7.424/3.397/11.075,7/5/4
+same_hour,all_sensor,growth (<=70 d),5,room2,1,1,1,1.0,1.0,1.0,False,7.424,7
+same_hour,all_sensor,growth (<=70 d),5,room6,3,3,3,1.0,1.0,0.3333333333333333,False,3.397,5
+same_hour,all_sensor,growth (<=70 d),5,room7,4,4,4,1.0,0.0,1.0,False,11.075,4
+same_hour,all_sensor,growth (<=70 d),7,all rooms,7,7,1/2/4,1.0,1.0,0.7142857142857143,False,6.769/2.608/5.337,6/5/3
+same_hour,all_sensor,growth (<=70 d),7,room2,1,1,1,1.0,1.0,1.0,False,6.769,6
+same_hour,all_sensor,growth (<=70 d),7,room6,2,2,2,1.0,1.0,0.0,False,2.608,5
+same_hour,all_sensor,growth (<=70 d),7,room7,4,4,4,1.0,1.0,1.0,False,5.337,3
+same_hour,all_sensor,growth (<=70 d),10,all rooms,7,7,1/2/4,1.0,1.0,0.8571428571428571,False,6.621/4.053/7.741,6/5/3
+same_hour,all_sensor,growth (<=70 d),10,room2,1,1,1,1.0,1.0,1.0,False,6.621,6
+same_hour,all_sensor,growth (<=70 d),10,room6,2,2,2,1.0,1.0,0.5,False,4.053,5
+same_hour,all_sensor,growth (<=70 d),10,room7,4,4,4,1.0,1.0,1.0,False,7.741,3
+same_hour,all_sensor,growth (<=70 d),15,all rooms,4,4,0/1/3,1.0,1.0,1.0,False,5.505/2.993/5.904,4/3/1
+same_hour,all_sensor,growth (<=70 d),15,room2,0,0,0,,,,False,5.505,4
+same_hour,all_sensor,growth (<=70 d),15,room6,1,1,1,1.0,1.0,1.0,False,2.993,3
+same_hour,all_sensor,growth (<=70 d),15,room7,3,3,3,1.0,1.0,1.0,False,5.904,1
+same_hour,all_sensor,growth (<=70 d),20,all rooms,3,3,1/0/2,1.0,1.0,0.3333333333333333,False,-0.146/2.515/-1.383,2/3/1
+same_hour,all_sensor,growth (<=70 d),20,room2,1,1,1,1.0,1.0,1.0,False,-0.146,2
+same_hour,all_sensor,growth (<=70 d),20,room6,0,0,0,,,,False,2.515,3
+same_hour,all_sensor,growth (<=70 d),20,room7,2,2,2,1.0,1.0,0.0,False,-1.383,1
+same_hour,all_sensor,plateau (>70 d),3,all rooms,33,33,11/7/15,0.5133149678604224,0.15151515151515152,0.8787878787878788,True,44.356/14.366/53.156,22/26/18
+same_hour,all_sensor,plateau (>70 d),3,room2,11,11,11,0.5371900826446281,0.0,1.0,True,44.356,22
+same_hour,all_sensor,plateau (>70 d),3,room6,7,7,7,0.5714285714285714,0.7142857142857143,0.42857142857142855,False,14.366,26
+same_hour,all_sensor,plateau (>70 d),3,room7,15,15,15,0.5244444444444445,0.0,1.0,True,53.156,18
+same_hour,all_sensor,plateau (>70 d),5,all rooms,34,34,11/8/15,0.5415224913494809,0.11764705882352941,0.8823529411764706,True,44.895/16.087/51.627,23/26/19
+same_hour,all_sensor,plateau (>70 d),5,room2,11,11,11,0.5371900826446281,0.0,1.0,True,44.895,23
+same_hour,all_sensor,plateau (>70 d),5,room6,8,8,8,0.59375,0.5,0.5,False,16.087,26
+same_hour,all_sensor,plateau (>70 d),5,room7,15,15,15,0.6,0.0,1.0,True,51.627,19
+same_hour,all_sensor,plateau (>70 d),7,all rooms,34,34,10/8/16,0.5588235294117647,0.20588235294117646,0.8235294117647058,True,44.331/12.753/57.708,24/26/18
+same_hour,all_sensor,plateau (>70 d),7,room2,10,10,10,0.58,0.0,1.0,True,44.331,24
+same_hour,all_sensor,plateau (>70 d),7,room6,8,8,8,0.53125,0.875,0.25,False,12.753,26
+same_hour,all_sensor,plateau (>70 d),7,room7,16,16,16,0.60546875,0.0,1.0,True,57.708,18
+same_hour,all_sensor,plateau (>70 d),10,all rooms,29,29,9/6/14,0.5636147443519619,0.13793103448275862,0.896551724137931,True,44.981/17.773/54.573,20/23/15
+same_hour,all_sensor,plateau (>70 d),10,room2,9,9,9,0.6172839506172839,0.0,1.0,False,44.981,20
+same_hour,all_sensor,plateau (>70 d),10,room6,6,6,6,0.5555555555555556,0.6666666666666666,0.5,False,17.773,23
+same_hour,all_sensor,plateau (>70 d),10,room7,14,14,14,0.6326530612244898,0.0,1.0,True,54.573,15
+same_hour,all_sensor,plateau (>70 d),15,all rooms,32,32,9/8/15,0.6357421875,0.1875,0.90625,True,45.029/17.851/58.583,23/24/17
+same_hour,all_sensor,plateau (>70 d),15,room2,9,9,9,0.654320987654321,0.0,1.0,False,45.029,23
+same_hour,all_sensor,plateau (>70 d),15,room6,8,8,8,0.71875,0.75,0.625,False,17.851,24
+same_hour,all_sensor,plateau (>70 d),15,room7,15,15,15,0.6755555555555556,0.0,1.0,True,58.583,17
+same_hour,all_sensor,plateau (>70 d),20,all rooms,31,31,10/5/16,0.7023933402705516,0.2903225806451613,0.8387096774193549,True,45.940/16.520/28.237,21/26/15
+same_hour,all_sensor,plateau (>70 d),20,room2,10,10,10,0.75,0.0,1.0,True,45.940,21
+same_hour,all_sensor,plateau (>70 d),20,room6,5,5,5,0.72,0.8,0.4,False,16.520,26
+same_hour,all_sensor,plateau (>70 d),20,room7,16,16,16,0.75,0.3125,0.875,True,28.237,15
+same_hour,morph_only,growth (<=70 d),3,all rooms,10,10,3/3/4,0.76,0.4,0.7,True,7.022/3.525/6.928,7/7/6
+same_hour,morph_only,growth (<=70 d),3,room2,3,3,3,0.6666666666666666,0.3333333333333333,0.6666666666666666,False,7.022,7
+same_hour,morph_only,growth (<=70 d),3,room6,3,3,3,1.0,1.0,0.3333333333333333,False,3.525,7
+same_hour,morph_only,growth (<=70 d),3,room7,4,4,4,0.875,0.0,1.0,False,6.928,6
+same_hour,morph_only,growth (<=70 d),5,all rooms,8,8,1/3/4,1.0,0.5,0.75,False,7.424/3.397/11.075,7/5/4
+same_hour,morph_only,growth (<=70 d),5,room2,1,1,1,1.0,1.0,1.0,False,7.424,7
+same_hour,morph_only,growth (<=70 d),5,room6,3,3,3,1.0,1.0,0.3333333333333333,False,3.397,5
+same_hour,morph_only,growth (<=70 d),5,room7,4,4,4,1.0,0.0,1.0,False,11.075,4
+same_hour,morph_only,growth (<=70 d),7,all rooms,7,7,1/2/4,1.0,1.0,0.7142857142857143,False,6.769/2.608/5.337,6/5/3
+same_hour,morph_only,growth (<=70 d),7,room2,1,1,1,1.0,1.0,1.0,False,6.769,6
+same_hour,morph_only,growth (<=70 d),7,room6,2,2,2,1.0,1.0,0.0,False,2.608,5
+same_hour,morph_only,growth (<=70 d),7,room7,4,4,4,1.0,1.0,1.0,False,5.337,3
+same_hour,morph_only,growth (<=70 d),10,all rooms,7,7,1/2/4,1.0,1.0,0.8571428571428571,False,6.621/4.053/7.741,6/5/3
+same_hour,morph_only,growth (<=70 d),10,room2,1,1,1,1.0,1.0,1.0,False,6.621,6
+same_hour,morph_only,growth (<=70 d),10,room6,2,2,2,1.0,1.0,0.5,False,4.053,5
+same_hour,morph_only,growth (<=70 d),10,room7,4,4,4,1.0,1.0,1.0,False,7.741,3
+same_hour,morph_only,growth (<=70 d),15,all rooms,4,4,0/1/3,1.0,1.0,1.0,False,5.505/2.993/5.904,4/3/1
+same_hour,morph_only,growth (<=70 d),15,room2,0,0,0,,,,False,5.505,4
+same_hour,morph_only,growth (<=70 d),15,room6,1,1,1,1.0,1.0,1.0,False,2.993,3
+same_hour,morph_only,growth (<=70 d),15,room7,3,3,3,1.0,1.0,1.0,False,5.904,1
+same_hour,morph_only,growth (<=70 d),20,all rooms,3,3,1/0/2,1.0,1.0,0.3333333333333333,False,-0.146/2.515/-1.383,2/3/1
+same_hour,morph_only,growth (<=70 d),20,room2,1,1,1,1.0,1.0,1.0,False,-0.146,2
+same_hour,morph_only,growth (<=70 d),20,room6,0,0,0,,,,False,2.515,3
+same_hour,morph_only,growth (<=70 d),20,room7,2,2,2,1.0,1.0,0.0,False,-1.383,1
+same_hour,morph_only,plateau (>70 d),3,all rooms,33,33,11/7/15,0.5022956841138659,0.15151515151515152,0.8787878787878788,True,44.356/14.366/53.156,22/26/18
+same_hour,morph_only,plateau (>70 d),3,room2,11,11,11,0.49586776859504134,0.0,1.0,True,44.356,22
+same_hour,morph_only,plateau (>70 d),3,room6,7,7,7,0.5306122448979592,0.7142857142857143,0.42857142857142855,False,14.366,26
+same_hour,morph_only,plateau (>70 d),3,room7,15,15,15,0.5155555555555555,0.0,1.0,True,53.156,18
+same_hour,morph_only,plateau (>70 d),5,all rooms,34,34,11/8/15,0.5311418685121108,0.14705882352941177,0.8823529411764706,True,44.895/16.087/51.627,23/26/19
+same_hour,morph_only,plateau (>70 d),5,room2,11,11,11,0.48760330578512395,0.0,1.0,True,44.895,23
+same_hour,morph_only,plateau (>70 d),5,room6,8,8,8,0.609375,0.625,0.5,False,16.087,26
+same_hour,morph_only,plateau (>70 d),5,room7,15,15,15,0.5822222222222222,0.0,1.0,True,51.627,19
+same_hour,morph_only,plateau (>70 d),7,all rooms,34,34,10/8/16,0.5415224913494809,0.17647058823529413,0.8235294117647058,True,44.331/12.753/57.708,24/26/18
+same_hour,morph_only,plateau (>70 d),7,room2,10,10,10,0.52,0.0,1.0,True,44.331,24
+same_hour,morph_only,plateau (>70 d),7,room6,8,8,8,0.59375,0.75,0.25,False,12.753,26
+same_hour,morph_only,plateau (>70 d),7,room7,16,16,16,0.58984375,0.0,1.0,True,57.708,18
+same_hour,morph_only,plateau (>70 d),10,all rooms,29,29,9/6/14,0.5552913198573127,0.1724137931034483,0.896551724137931,True,44.981/17.773/54.573,20/23/15
+same_hour,morph_only,plateau (>70 d),10,room2,9,9,9,0.5555555555555556,0.0,1.0,False,44.981,20
+same_hour,morph_only,plateau (>70 d),10,room6,6,6,6,0.6388888888888888,0.8333333333333334,0.5,False,17.773,23
+same_hour,morph_only,plateau (>70 d),10,room7,14,14,14,0.6224489795918368,0.0,1.0,True,54.573,15
+same_hour,morph_only,plateau (>70 d),15,all rooms,32,32,9/8/15,0.615234375,0.25,0.90625,True,45.029/17.851/58.583,23/24/17
+same_hour,morph_only,plateau (>70 d),15,room2,9,9,9,0.5679012345679012,0.0,1.0,False,45.029,23
+same_hour,morph_only,plateau (>70 d),15,room6,8,8,8,0.765625,1.0,0.625,False,17.851,24
+same_hour,morph_only,plateau (>70 d),15,room7,15,15,15,0.6444444444444445,0.0,1.0,True,58.583,17
+same_hour,morph_only,plateau (>70 d),20,all rooms,31,31,10/5/16,0.6649323621227887,0.3225806451612903,0.8387096774193549,True,45.940/16.520/28.237,21/26/15
+same_hour,morph_only,plateau (>70 d),20,room2,10,10,10,0.61,0.0,1.0,True,45.940,21
+same_hour,morph_only,plateau (>70 d),20,room6,5,5,5,0.8,1.0,0.4,False,16.520,26
+same_hour,morph_only,plateau (>70 d),20,room7,16,16,16,0.7109375,0.3125,0.875,True,28.237,15
+nearest_pm1h,all_sensor,growth (<=70 d),3,all rooms,10,10,3/3/4,0.79,0.5,0.7,True,6.973/3.525/6.928,7/7/6
+nearest_pm1h,all_sensor,growth (<=70 d),3,room2,3,3,3,0.6666666666666666,0.3333333333333333,0.6666666666666666,False,6.973,7
+nearest_pm1h,all_sensor,growth (<=70 d),3,room6,3,3,3,1.0,1.0,0.3333333333333333,False,3.525,7
+nearest_pm1h,all_sensor,growth (<=70 d),3,room7,4,4,4,0.9375,0.25,1.0,False,6.928,6
+nearest_pm1h,all_sensor,growth (<=70 d),5,all rooms,8,8,1/3/4,0.984375,0.5,0.75,False,7.481/3.397/11.075,7/5/4
+nearest_pm1h,all_sensor,growth (<=70 d),5,room2,1,1,1,1.0,1.0,1.0,False,7.481,7
+nearest_pm1h,all_sensor,growth (<=70 d),5,room6,3,3,3,1.0,1.0,0.3333333333333333,False,3.397,5
+nearest_pm1h,all_sensor,growth (<=70 d),5,room7,4,4,4,1.0,0.0,1.0,False,11.075,4
+nearest_pm1h,all_sensor,growth (<=70 d),7,all rooms,7,7,1/2/4,1.0,1.0,0.7142857142857143,False,6.753/2.574/5.388,6/5/3
+nearest_pm1h,all_sensor,growth (<=70 d),7,room2,1,1,1,1.0,1.0,1.0,False,6.753,6
+nearest_pm1h,all_sensor,growth (<=70 d),7,room6,2,2,2,1.0,1.0,0.0,False,2.574,5
+nearest_pm1h,all_sensor,growth (<=70 d),7,room7,4,4,4,1.0,1.0,1.0,False,5.388,3
+nearest_pm1h,all_sensor,growth (<=70 d),10,all rooms,7,7,1/2/4,1.0,1.0,0.8571428571428571,False,6.621/4.053/7.741,6/5/3
+nearest_pm1h,all_sensor,growth (<=70 d),10,room2,1,1,1,1.0,1.0,1.0,False,6.621,6
+nearest_pm1h,all_sensor,growth (<=70 d),10,room6,2,2,2,1.0,1.0,0.5,False,4.053,5
+nearest_pm1h,all_sensor,growth (<=70 d),10,room7,4,4,4,1.0,1.0,1.0,False,7.741,3
+nearest_pm1h,all_sensor,growth (<=70 d),15,all rooms,4,4,0/1/3,1.0,1.0,1.0,False,5.505/2.993/5.904,4/3/1
+nearest_pm1h,all_sensor,growth (<=70 d),15,room2,0,0,0,,,,False,5.505,4
+nearest_pm1h,all_sensor,growth (<=70 d),15,room6,1,1,1,1.0,1.0,1.0,False,2.993,3
+nearest_pm1h,all_sensor,growth (<=70 d),15,room7,3,3,3,1.0,1.0,1.0,False,5.904,1
+nearest_pm1h,all_sensor,growth (<=70 d),20,all rooms,3,3,1/0/2,1.0,1.0,0.3333333333333333,False,-0.146/2.515/-1.383,2/3/1
+nearest_pm1h,all_sensor,growth (<=70 d),20,room2,1,1,1,1.0,1.0,1.0,False,-0.146,2
+nearest_pm1h,all_sensor,growth (<=70 d),20,room6,0,0,0,,,,False,2.515,3
+nearest_pm1h,all_sensor,growth (<=70 d),20,room7,2,2,2,1.0,1.0,0.0,False,-1.383,1
+nearest_pm1h,all_sensor,plateau (>70 d),3,all rooms,33,33,11/7/15,0.5114784205693297,0.15151515151515152,0.8787878787878788,True,44.356/14.366/52.679,22/26/18
+nearest_pm1h,all_sensor,plateau (>70 d),3,room2,11,11,11,0.5371900826446281,0.0,1.0,True,44.356,22
+nearest_pm1h,all_sensor,plateau (>70 d),3,room6,7,7,7,0.5714285714285714,0.7142857142857143,0.42857142857142855,False,14.366,26
+nearest_pm1h,all_sensor,plateau (>70 d),3,room7,15,15,15,0.5244444444444445,0.0,1.0,True,52.679,18
+nearest_pm1h,all_sensor,plateau (>70 d),5,all rooms,34,34,11/8/15,0.5397923875432526,0.11764705882352941,0.8823529411764706,True,44.895/16.087/50.569,23/26/19
+nearest_pm1h,all_sensor,plateau (>70 d),5,room2,11,11,11,0.5371900826446281,0.0,1.0,True,44.895,23
+nearest_pm1h,all_sensor,plateau (>70 d),5,room6,8,8,8,0.59375,0.5,0.5,False,16.087,26
+nearest_pm1h,all_sensor,plateau (>70 d),5,room7,15,15,15,0.6,0.0,1.0,True,50.569,19
+nearest_pm1h,all_sensor,plateau (>70 d),7,all rooms,34,34,10/8/16,0.5562283737024222,0.20588235294117646,0.8235294117647058,True,44.331/12.753/57.714,24/26/18
+nearest_pm1h,all_sensor,plateau (>70 d),7,room2,10,10,10,0.58,0.0,1.0,True,44.331,24
+nearest_pm1h,all_sensor,plateau (>70 d),7,room6,8,8,8,0.53125,0.875,0.25,False,12.753,26
+nearest_pm1h,all_sensor,plateau (>70 d),7,room7,16,16,16,0.6015625,0.0,1.0,True,57.714,18
+nearest_pm1h,all_sensor,plateau (>70 d),10,all rooms,29,29,9/6/14,0.558858501783591,0.13793103448275862,0.896551724137931,True,44.981/17.773/54.375,20/23/15
+nearest_pm1h,all_sensor,plateau (>70 d),10,room2,9,9,9,0.5925925925925926,0.0,1.0,False,44.981,20
+nearest_pm1h,all_sensor,plateau (>70 d),10,room6,6,6,6,0.5555555555555556,0.6666666666666666,0.5,False,17.773,23
+nearest_pm1h,all_sensor,plateau (>70 d),10,room7,14,14,14,0.6275510204081632,0.0,1.0,True,54.375,15
+nearest_pm1h,all_sensor,plateau (>70 d),15,all rooms,32,32,9/8/15,0.6376953125,0.1875,0.90625,True,45.029/17.851/58.489,23/24/17
+nearest_pm1h,all_sensor,plateau (>70 d),15,room2,9,9,9,0.654320987654321,0.0,1.0,False,45.029,23
+nearest_pm1h,all_sensor,plateau (>70 d),15,room6,8,8,8,0.703125,0.75,0.625,False,17.851,24
+nearest_pm1h,all_sensor,plateau (>70 d),15,room7,15,15,15,0.6844444444444444,0.0,1.0,True,58.489,17
+nearest_pm1h,all_sensor,plateau (>70 d),20,all rooms,31,31,10/5/16,0.7013527575442248,0.2903225806451613,0.8387096774193549,True,45.940/16.520/28.291,21/26/15
+nearest_pm1h,all_sensor,plateau (>70 d),20,room2,10,10,10,0.75,0.0,1.0,True,45.940,21
+nearest_pm1h,all_sensor,plateau (>70 d),20,room6,5,5,5,0.68,0.8,0.4,False,16.520,26
+nearest_pm1h,all_sensor,plateau (>70 d),20,room7,16,16,16,0.75,0.3125,0.875,True,28.291,15
+nearest_pm1h,morph_only,growth (<=70 d),3,all rooms,10,10,3/3/4,0.76,0.4,0.7,True,6.973/3.525/6.928,7/7/6
+nearest_pm1h,morph_only,growth (<=70 d),3,room2,3,3,3,0.6666666666666666,0.3333333333333333,0.6666666666666666,False,6.973,7
+nearest_pm1h,morph_only,growth (<=70 d),3,room6,3,3,3,1.0,1.0,0.3333333333333333,False,3.525,7
+nearest_pm1h,morph_only,growth (<=70 d),3,room7,4,4,4,0.875,0.0,1.0,False,6.928,6
+nearest_pm1h,morph_only,growth (<=70 d),5,all rooms,8,8,1/3/4,1.0,0.5,0.75,False,7.481/3.397/11.075,7/5/4
+nearest_pm1h,morph_only,growth (<=70 d),5,room2,1,1,1,1.0,1.0,1.0,False,7.481,7
+nearest_pm1h,morph_only,growth (<=70 d),5,room6,3,3,3,1.0,1.0,0.3333333333333333,False,3.397,5
+nearest_pm1h,morph_only,growth (<=70 d),5,room7,4,4,4,1.0,0.0,1.0,False,11.075,4
+nearest_pm1h,morph_only,growth (<=70 d),7,all rooms,7,7,1/2/4,1.0,1.0,0.7142857142857143,False,6.753/2.574/5.388,6/5/3
+nearest_pm1h,morph_only,growth (<=70 d),7,room2,1,1,1,1.0,1.0,1.0,False,6.753,6
+nearest_pm1h,morph_only,growth (<=70 d),7,room6,2,2,2,1.0,1.0,0.0,False,2.574,5
+nearest_pm1h,morph_only,growth (<=70 d),7,room7,4,4,4,1.0,1.0,1.0,False,5.388,3
+nearest_pm1h,morph_only,growth (<=70 d),10,all rooms,7,7,1/2/4,1.0,1.0,0.8571428571428571,False,6.621/4.053/7.741,6/5/3
+nearest_pm1h,morph_only,growth (<=70 d),10,room2,1,1,1,1.0,1.0,1.0,False,6.621,6
+nearest_pm1h,morph_only,growth (<=70 d),10,room6,2,2,2,1.0,1.0,0.5,False,4.053,5
+nearest_pm1h,morph_only,growth (<=70 d),10,room7,4,4,4,1.0,1.0,1.0,False,7.741,3
+nearest_pm1h,morph_only,growth (<=70 d),15,all rooms,4,4,0/1/3,1.0,1.0,1.0,False,5.505/2.993/5.904,4/3/1
+nearest_pm1h,morph_only,growth (<=70 d),15,room2,0,0,0,,,,False,5.505,4
+nearest_pm1h,morph_only,growth (<=70 d),15,room6,1,1,1,1.0,1.0,1.0,False,2.993,3
+nearest_pm1h,morph_only,growth (<=70 d),15,room7,3,3,3,1.0,1.0,1.0,False,5.904,1
+nearest_pm1h,morph_only,growth (<=70 d),20,all rooms,3,3,1/0/2,1.0,1.0,0.3333333333333333,False,-0.146/2.515/-1.383,2/3/1
+nearest_pm1h,morph_only,growth (<=70 d),20,room2,1,1,1,1.0,1.0,1.0,False,-0.146,2
+nearest_pm1h,morph_only,growth (<=70 d),20,room6,0,0,0,,,,False,2.515,3
+nearest_pm1h,morph_only,growth (<=70 d),20,room7,2,2,2,1.0,1.0,0.0,False,-1.383,1
+nearest_pm1h,morph_only,plateau (>70 d),3,all rooms,33,33,11/7/15,0.5004591368227732,0.15151515151515152,0.8787878787878788,True,44.356/14.366/52.679,22/26/18
+nearest_pm1h,morph_only,plateau (>70 d),3,room2,11,11,11,0.49586776859504134,0.0,1.0,True,44.356,22
+nearest_pm1h,morph_only,plateau (>70 d),3,room6,7,7,7,0.5102040816326531,0.7142857142857143,0.42857142857142855,False,14.366,26
+nearest_pm1h,morph_only,plateau (>70 d),3,room7,15,15,15,0.5155555555555555,0.0,1.0,True,52.679,18
+nearest_pm1h,morph_only,plateau (>70 d),5,all rooms,34,34,11/8/15,0.5302768166089965,0.14705882352941177,0.8823529411764706,True,44.895/16.087/50.569,23/26/19
+nearest_pm1h,morph_only,plateau (>70 d),5,room2,11,11,11,0.49586776859504134,0.0,1.0,True,44.895,23
+nearest_pm1h,morph_only,plateau (>70 d),5,room6,8,8,8,0.609375,0.625,0.5,False,16.087,26
+nearest_pm1h,morph_only,plateau (>70 d),5,room7,15,15,15,0.5822222222222222,0.0,1.0,True,50.569,19
+nearest_pm1h,morph_only,plateau (>70 d),7,all rooms,34,34,10/8/16,0.5432525951557093,0.17647058823529413,0.8235294117647058,True,44.331/12.753/57.714,24/26/18
+nearest_pm1h,morph_only,plateau (>70 d),7,room2,10,10,10,0.52,0.0,1.0,True,44.331,24
+nearest_pm1h,morph_only,plateau (>70 d),7,room6,8,8,8,0.609375,0.75,0.25,False,12.753,26
+nearest_pm1h,morph_only,plateau (>70 d),7,room7,16,16,16,0.5859375,0.0,1.0,True,57.714,18
+nearest_pm1h,morph_only,plateau (>70 d),10,all rooms,29,29,9/6/14,0.5505350772889417,0.1724137931034483,0.896551724137931,True,44.981/17.773/54.375,20/23/15
+nearest_pm1h,morph_only,plateau (>70 d),10,room2,9,9,9,0.49382716049382713,0.0,1.0,False,44.981,20
+nearest_pm1h,morph_only,plateau (>70 d),10,room6,6,6,6,0.6388888888888888,0.8333333333333334,0.5,False,17.773,23
+nearest_pm1h,morph_only,plateau (>70 d),10,room7,14,14,14,0.6224489795918368,0.0,1.0,True,54.375,15
+nearest_pm1h,morph_only,plateau (>70 d),15,all rooms,32,32,9/8/15,0.6171875,0.25,0.90625,True,45.029/17.851/58.489,23/24/17
+nearest_pm1h,morph_only,plateau (>70 d),15,room2,9,9,9,0.5555555555555556,0.0,1.0,False,45.029,23
+nearest_pm1h,morph_only,plateau (>70 d),15,room6,8,8,8,0.765625,1.0,0.625,False,17.851,24
+nearest_pm1h,morph_only,plateau (>70 d),15,room7,15,15,15,0.6488888888888888,0.0,1.0,True,58.489,17
+nearest_pm1h,morph_only,plateau (>70 d),20,all rooms,31,31,10/5/16,0.6649323621227887,0.3225806451612903,0.8387096774193549,True,45.940/16.520/28.291,21/26/15
+nearest_pm1h,morph_only,plateau (>70 d),20,room2,10,10,10,0.63,0.0,1.0,True,45.940,21
+nearest_pm1h,morph_only,plateau (>70 d),20,room6,5,5,5,0.8,1.0,0.4,False,16.520,26
+nearest_pm1h,morph_only,plateau (>70 d),20,room7,16,16,16,0.70703125,0.3125,0.875,True,28.291,15

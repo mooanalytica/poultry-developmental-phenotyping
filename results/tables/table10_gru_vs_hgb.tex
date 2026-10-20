@@ -1,0 +1,11 @@
+% Table 10. GRU (time-bounded 24 h sequences, training-room imputation) against HGB fused; GRU headline = mean over 5 seeds with the range in brackets (seed 0 pre-declared)
+\begin{tabular}{llll}
+\hline
+model & MAE macro & RMSE macro & R2 macro \\
+\hline
+GRU time-bounded (headline) & 18.77 [14.74, 21.06] & 24.43 [19.70, 27.42] & 0.641 [0.533, 0.776] \\
+HGB fused, same anchors & 18.10 & 25.04 & 0.647 \\
+HGB fused, all windows & 18.58 & 25.82 & 0.627 \\
+GRU Revision 3 construction (seed 0) & 35.92 & 43.20 & -0.317 \\
+\hline
+\end{tabular}
