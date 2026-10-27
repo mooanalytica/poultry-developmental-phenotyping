@@ -235,98 +235,94 @@ add_tab(
     [("Table 7. Transition-day estimates (days)", df, {c: F0 for c in df.columns[1:-1]})],
 )
 
+DET = "all_sensor | {ph} | k={k} d | rule=same_hour"
+PHASES = (("growth", "growth (<=70 d)"), ("post-transition", "plateau (>70 d)"))
 rows = []
 for k in (5, 10, 15, 20):
-
-    def cell(ph, m, fold="all rooms"):
-        return get(
-            "S10_detection_ci_incl_calibration",
-            m,
-            f"all_sensor | {ph} | k={k} d | rule=same_hour",
-            fold,
-        )
-
-    cells = [k]
-    for ph in ("growth (<=70 d)", "plateau (>70 d)"):
-        for m in ("AUC", "sensitivity"):
-            r = cell(ph, m)
-            cells.append(r)
-    for ph in ("growth (<=70 d)", "plateau (>70 d)"):
+    for label, ph in PHASES:
+        cells = [k, label]
+        for m in ("AUC", "sensitivity", "achieved specificity"):
+            fixed = get("S09_detection", m, DET.format(ph=ph, k=k), "all rooms")
+            incl = get("S10_detection_ci_incl_calibration", m, DET.format(ph=ph, k=k), "all rooms")
+            cells += [
+                fixed,
+                f"[{fixed.ci_lo:.2f}, {fixed.ci_hi:.2f}]",
+                f"[{incl.ci_lo:.2f}, {incl.ci_hi:.2f}]",
+            ]
         for room in ROOMS:
-            cells.append(cell(ph, "achieved specificity", room))
-    rows.append(cells)
-cols = [
-    "Injected delay (days)",
-    "Growth AUC",
-    "Growth sensitivity",
-    "Plateau AUC",
-    "Plateau sensitivity",
-] + [f"Achieved specificity, {p}, {r}" for p in ("growth", "plateau") for r in ROOMS]
-df, _ = table(cols, rows)
-for c in ("Growth AUC", "Growth sensitivity", "Plateau AUC", "Plateau sensitivity"):
-    ci = []
-    for k in (5, 10, 15, 20):
-        ph = "growth (<=70 d)" if c.startswith("Growth") else "plateau (>70 d)"
-        m = "AUC" if "AUC" in c else "sensitivity"
-        ci.append(
-            ci_text(
-                get(
-                    "S10_detection_ci_incl_calibration",
-                    m,
-                    f"all_sensor | {ph} | k={k} d | rule=same_hour",
-                    "all rooms",
-                )
+            cells.append(get("S09_detection", "achieved specificity", DET.format(ph=ph, k=k), room))
+        for room in ROOMS:
+            cells.append(
+                get("S42_detection_counts", "false-positive rate", DET.format(ph=ph, k=k), room)
             )
-        )
-    df[c] = ci
+        for m in ("positive windows", "negative windows", "room-week blocks"):
+            cells.append(get("S42_detection_counts", m, DET.format(ph=ph, k=k), "all rooms"))
+        rows.append(cells)
+cols = ["Injected delay (days)", "Phase"]
+for m in ("AUC", "Sensitivity", "Achieved specificity"):
+    cols += [m, f"{m} 95% CI, fixed calibration", f"{m} 95% CI, calibration-inclusive"]
+cols += [f"Achieved specificity, {r}" for r in ROOMS] + [f"False-positive rate, {r}" for r in ROOMS]
+cols += ["Positive windows", "Negative windows", "Room-week blocks"]
+df, _ = table(cols, rows)
+fmt = {
+    c: F2
+    for c in cols
+    if c.startswith(("AUC", "Sensitivity", "Achieved", "False")) and "CI" not in c
+}
+fmt.update({c: F0 for c in ("Positive windows", "Negative windows", "Room-week blocks")})
 add_tab(
     "Table8_detection",
     [
         (
-            "Table 8. Detection of injected developmental delay (all sensors, calibrated detector, same-hour matched anchors, all rooms; estimate [95% CI, room-week bootstrap including recalibration]; sensitivity at the threshold set for 95% specificity on the training rooms)",
+            "Table 8. Detection of injected developmental delay (all sensors, calibrated detector, same-hour matched anchors, all rooms). One room-week block bootstrap (test weeks resampled within rooms, 2,000 resamples, seed 0): the fixed-calibration interval keeps the thresholds frozen; the calibration-inclusive interval re-derives each threshold from resampled inner-calibration weeks of the two training rooms. Sensitivity is measured at the threshold set for 95% specificity on the training rooms; false-positive rate = 1 - achieved specificity",
             df,
-            {c: F2 for c in df.columns if c.startswith("Achieved")},
+            fmt,
         )
     ],
 )
 
-blocks = ["31-70d", "70-110d", "110-138d", "138-160d", "160-182d"]
-rows = [
-    [
-        i + 1,
-        b,
-        get("S05_ageblock", "n", "primary fused", b, "AGEBLOCK_12h"),
-        get("S05_ageblock", "MAE", "primary fused", b, "AGEBLOCK_12h"),
-        get("S05_ageblock", "R2", "primary fused", b, "AGEBLOCK_12h"),
-    ]
-    for i, b in enumerate(blocks)
-]
-rows += [
-    [
-        "pooled fold-mean",
-        "",
-        "",
-        get("S05_ageblock", "MAE", "primary fused", "pooled fold-mean", "AGEBLOCK_12h"),
-        "",
-    ],
-    [
-        "pooled fold-mean excl. block 1",
-        "",
-        "",
-        get(
-            "S05_ageblock", "MAE", "primary fused", "pooled fold-mean excl. block 1", "AGEBLOCK_12h"
-        ),
-        "",
-    ],
-]
-df, _ = table(["Block", "Age range (days, rounded block edges)", "n", "MAE (days)", "R2"], rows)
+rows = []
+for i in range(1, 6):
+    blk = f"block {i}"
+    rows.append(
+        [
+            i,
+            get("S40_fold_manifest", "heldout_lo_age_d", "AGEBLOCK | window purge, 12 h", blk),
+            get("S40_fold_manifest", "heldout_hi_age_d", "AGEBLOCK | window purge, 12 h", blk),
+            get("S40_fold_manifest", "n_test", "AGEBLOCK | window purge, 12 h", blk),
+            get("S41_ageblock_aggregation", "MAE", "per block", blk),
+            get("S41_ageblock_aggregation", "RMSE", "per block", blk),
+            get("S41_ageblock_aggregation", "R2", "per block", blk),
+        ]
+    )
+for label in ("all 5 blocks", "excluding block 1"):
+    for kind, scope in (
+        ("mean of block values", "mean of blocks"),
+        ("pooled over all held-out windows", "pooled"),
+    ):
+        x = [
+            get("S41_ageblock_aggregation", f"{m}, {kind}", label, scope)
+            for m in ("MAE", "RMSE", "R2")
+        ]
+        rows.append([f"{kind} ({label})", "", "", x[0].n, *x])
+df, _ = table(
+    ["Block", "Age from (days)", "Age to (days)", "n windows", "MAE (days)", "RMSE (days)", "R2"],
+    rows,
+)
 add_tab(
     "Table9_ageblock",
     [
         (
-            "Table 9. Leave-one-age-block-out performance by block (12 h window purge, primary fused model)",
+            "Table 9. Leave-one-age-block-out performance by block (12 h window purge, primary fused model; ranges and counts from the fold manifest). 'mean of block values' is the unweighted mean of the five per-block metrics; 'pooled over all held-out windows' is one metric over all windows (R2 against their pooled mean age). They are different quantities",
             df,
-            {"n": F0, "MAE (days)": F2, "R2": F3},
+            {
+                "Age from (days)": F3,
+                "Age to (days)": F3,
+                "n windows": F0,
+                "MAE (days)": F2,
+                "RMSE (days)": F2,
+                "R2": F3,
+            },
         )
     ],
 )
@@ -733,6 +729,67 @@ add_tab(
     [("Corrections, Step 0 to V3 (macro MAE, days)", df, {c: F2 for c in df.columns[1:-1]})],
 )
 
+rows = []
+for _, r in S[S.section == "S45_window_validity"].iterrows():
+    rows.append([r.room_or_fold, r.metric, r])
+df, _ = table(["Scope", "Quantity", "Value"], rows)
+add_tab(
+    "Window_validity",
+    [
+        (
+            "Evaluated 6 h windows with and without usable temporal features (complete-case anchors; usable = at least 3 observed hours in the trailing 6 h)",
+            df,
+            {"Value": "0.000"},
+        )
+    ],
+)
+
+q = S[S.section == "S46_qc_timing"]
+rows = [[r.variant, r.metric, r.room_or_fold, r] for _, r in q.iterrows()]
+df, _ = table(["QC variant / setting", "Quantity", "Block or scope", "Value"], rows)
+add_tab(
+    "QC_timing",
+    [
+        (
+            "Camera-scale QC timing check in the age-block evaluation (12 h purge, primary fused model)",
+            df,
+            {"Value": "0.000"},
+        )
+    ],
+)
+
+rows = []
+for sec in ("S47_reconciliation", "S38_clustering_persistence"):
+    for _, r in S[S.section == sec].iterrows():
+        rows.append([r.variant, r.metric, r.room_or_fold, r])
+df, _ = table(["Setting", "Quantity", "Room or fold", "Value"], rows)
+add_tab(
+    "Reconciliation",
+    [
+        (
+            "Reconciliation items: morphometry reference week, fold references, transition-day calculation, advantage over the median-body-height baseline",
+            df,
+            {"Value": "0.000"},
+        )
+    ],
+)
+
+rows = []
+for sec in ("S43_detection_block_counts", "S44_detection_nonoverlapping"):
+    for _, r in S[S.section == sec].iterrows():
+        rows.append([sec[:3], r.variant, r.metric, r.room_or_fold, r])
+df, _ = table(["Section", "Setting", "Quantity", "Room or room-week", "Value"], rows)
+add_tab(
+    "Detection_counts",
+    [
+        (
+            "Positive and negative windows per room-week block, and non-overlapping block counts against the minimum required",
+            df,
+            {"Value": "0"},
+        )
+    ],
+)
+
 full = S.rename(columns={"result_id": "Result ID"})
 
 readme = [
@@ -748,7 +805,7 @@ readme = [
     ),
     (
         "Reproduce",
-        "python run_all.py   (empty cache; writes the sheet, this workbook's source CSV, tables and manifest). Then: python code/phase2/build_final_workbook.py and python make_figures.py",
+        "bash run_all.sh (empty cache; writes the sheet, this workbook, the tables and the manifest). Then: python code/make_figures.py",
     ),
     ("results_sheet.csv sha256", hashlib.sha256(SHEET.read_bytes()).hexdigest()),
     (
@@ -768,8 +825,8 @@ tab_notes = {
     "Table5_phase": "Table 5",
     "Table6_silhouette": "Table 6",
     "Table7_transition": "Table 7",
-    "Table8_detection": "Table 8 (with achieved specificity per room)",
-    "Table9_ageblock": "Table 9",
+    "Table8_detection": "Table 8 (both intervals, achieved specificity and false-positive rate per room)",
+    "Table9_ageblock": "Table 9 (from the fold manifest; mean of blocks and pooled metrics named separately)",
     "Fig5_model_family": "Fig 5 data",
     "Fig9_body_size": "Fig 9 data",
     "S1_paired_fusion": "Fig S1 data",
@@ -780,6 +837,10 @@ tab_notes = {
     "Demeaning": "Daily demeaning",
     "Clustering": "Clustering and transition days",
     "Corrections_before_after": "Step 0 to V3 corrections",
+    "Window_validity": "Windows with and without usable temporal features",
+    "QC_timing": "Camera-scale QC timing check",
+    "Reconciliation": "Reference week, transition-day calculation and baseline comparison",
+    "Detection_counts": "Window and block counts per room-week",
     "Full_sheet": "All rows with result IDs",
 }
 

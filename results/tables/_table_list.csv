@@ -1,12 +1,12 @@
 table,caption,rows
 table01_data_coverage,"Table 1. Coverage per room and modality, with the denominator stated for every row",92
 table01b_key_dates,Table 1b. Key dates and reference periods,34
-table02_loro,Table 2. Leave-one-room-out performance (MAE and RMSE in days); V2 and V3 are labelled extensions,4
+table02_loro,Table 2. Leave-one-room-out performance (MAE and RMSE in days); V2 and V3 are labelled extensions. The median-body-height baseline is evaluated only on windows with usable temporal features.,5
 table03_growth_plateau,"Table 3. MAE by growth (<=70 d) and plateau (>70 d) phase, leave-one-room-out",4
 table04_ageblock,Table 4. Age-block MAE (days) per block (block edges = quintiles of age of the complete-case windows); pooled fold-mean also given without block 1 (its relative-morphometry reference is empty),6
 table05_season,Table 5. Seasonal extrapolation (the held-out season is the test set; the summer-held-out fold has no relative morphometry features),12
 table06_paired_fusion,"Table 6. Paired MAE differences (days, first model minus second; same rows) with 95% room-day bootstrap intervals; conditional on this cohort and these rooms",4
-table08_detection,"Table 8. Detection of injected delays on the calibrated pipeline (in-fold calibration, target specificity 0.95; matched anchors, same-hour rule; trailing 7-day windows with >= 4 days of data). Intervals: 95% room-week bootstrap with the calibration held fixed; conditional on this cohort and these rooms, not new farms",16
+table08_detection,"Table 8. Detection of injected delays (calibrated detector, target specificity 0.95; matched anchors, same-hour rule; trailing 7-day windows with >= 4 days of data). Both intervals are 95% percentile intervals of one room-week block bootstrap (test weeks resampled within each room, 2,000 resamples, seed 0): in the fixed-calibration interval the thresholds stay frozen at their inner-calibration values; in the calibration-inclusive interval each resample also re-derives every threshold from resampled inner-calibration weeks of the two training rooms. Conditional on this cohort and these rooms",16
 table08b_per_room_specificity,"Table 8b. Achieved specificity and sensitivity per held-out room (all-sensor, same-hour rule; target specificity 0.95)",8
 table08c_perturbation_manifest,"Table 8c. Perturbation manifest summed over rooms (all-sensor): eligible, used and dropped anchors and window counts, both matching rules",16
 table08d_sparse_blocks,"Table 8d. Non-overlapping 7-day blocks (4-of-7-day rule): block counts, AUC and sensitivity; growth cells are not estimable",16
@@ -23,3 +23,10 @@ table15_clustering,"Table 15. Unsupervised clustering per room (primary pipeline
 table16_old_vs_new,"Table 16. Earlier (Step 0 settings, same scripts) against the primary pipeline",16
 table17_room_identification,"Table 17. Room identification from audio features (age-block cross-validation; chance 0.333), before and after the V2 first-week reference",6
 table18_cumulative,"Table 18. Cumulative effect of each change on leave-one-room-out MAE (days), age-block (12 h purge) and seasonal MAE; Steps 0-2 use the row-based slope, Step 3 the time-based slope",10
+table09_ageblock_by_block,Table 9. Leave-one-age-block-out performance by block (12 h purge; block ranges and window counts from the fold manifest). 'mean of block values' is the unweighted mean of the five per-block metrics; 'pooled over all held-out windows' is one metric computed over all windows (R2 against their pooled mean age); the two are different quantities,9
+table08e_specificity_beside_sensitivity,"Table 8e. Sensitivity and achieved specificity of the calibrated detector (all-sensor, same-hour rule, target specificity 0.95) per held-out room and pooled, with window and room-week block counts. False-positive rate = 1 - achieved specificity. Intervals as in Table 8",32
+table08f_windows_per_room_week,"Table 8f. Positive and negative 7-day windows per held-out room and room-week block (all-sensor, same-hour rule)",196
+table08g_nonoverlapping_blocks,"Table 8g. Non-overlapping 7-day blocks: positive and negative blocks per held-out scope against the minimum required in each class (all-sensor, same-hour rule)",32
+table19_window_validity,"Table 19. Evaluated 6 h windows with and without usable temporal features (complete-case anchors; usable = at least 3 observed hours in the trailing 6 h, so that window means and slopes exist)",4
+table20_qc_timing,"Table 20. Age-block evaluation (12 h purge, primary fused model) with the camera-scale QC built once on the full series, from training days only inside each fold, or hour by hour from the running median of the day so far",3
+table21_transition_reconciliation,Table 21. Transition days recomputed from the clustering curves of the primary pipeline and of the Step 0 settings (first age > 35 d with the smoothed early-cluster share < 0.5; persistence = the share stays below 0.5 for 3 consecutive days),6

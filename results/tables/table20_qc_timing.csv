@@ -1,0 +1,4 @@
+QC variant,"MAE, mean of 5 blocks","RMSE, mean of 5 blocks","R2, mean of 5 blocks",windows,QC-excluded complete-case hours (per fold)
+original (QC built once on the full series),20.52,25.64,-9.06,"4,198",132
+hourly past-only (running median of the day so far),20.48,25.63,-8.97,"4,216",114
+fold-internal (training-day history only),21.35,26.31,-9.51,"4,198",212

@@ -820,6 +820,416 @@ for nm, q in bl.groupby("baseline", sort=False):
             detail="macro = mean over the three held-out rooms",
             source=src,
         )
+src = "code/phase2/fold_manifest_stage.py"
+fm = rd("fold_manifest", "fold_manifests.csv")
+FM_METRICS = [
+    "heldout_lo_age_d",
+    "heldout_hi_age_d",
+    "n_test",
+    "n_train",
+    "n_removed_by_embargo",
+    "n_removed_by_QC_hours_heldout",
+    "n_removed_by_QC_hours_train",
+    "train_windows_reading_heldout_or_embargo_obs",
+]
+for _, r in fm.iterrows():
+    fold = f"block {int(r.fold_id) + 1}" if r.protocol == "AGEBLOCK" else str(r.fold_id)
+    for m in FM_METRICS:
+        if pd.notna(r[m]):
+            variant = f"{r.protocol} | {r.purge} purge, {r.embargo_h:g} h"
+            add("S40_fold_manifest", m, fold, r[m], variant=variant, source=src)
+
+src = "code/phase2/build_results_sheet.py (from core_primary/preds_ageblock_primary.csv)"
+ap_ = pd.read_csv(RUN / "core_primary/preds_ageblock_primary.csv")
+ap_ = ap_[ap_.model == "fused"]
+order = list(dict.fromkeys(ap_.block))
+n_cc = sum(
+    r["value"]
+    for r in ROWS
+    if r["section"] == "S03_loro"
+    and r["metric"] == "n"
+    and r["variant"] == "primary fused"
+    and r["room_or_fold"] in ROOMS
+)
+fm12 = fm[(fm.protocol == "AGEBLOCK") & (fm.purge == "window") & (fm.embargo_h == 12)]
+assert len(order) == 5 and len(fm12) == 5
+assert int(fm12.n_test.sum()) == len(ap_) == int(n_cc), "age-block windows do not sum to the n"
+
+
+def block_metrics(d):
+    e = d.pred - d.y
+    sst = ((d.y - d.y.mean()) ** 2).sum()
+    return dict(
+        MAE=e.abs().mean(), RMSE=float(np.sqrt((e**2).mean())), R2=1 - (e**2).sum() / sst, n=len(d)
+    )
+
+
+per_block = [block_metrics(ap_[ap_.block == b]) for b in order]
+detail = "12 h window purge, primary fused"
+for i, bm in enumerate(per_block):
+    for m in ("MAE", "RMSE", "R2", "n"):
+        add(
+            "S41_ageblock_aggregation",
+            m,
+            f"block {i + 1}",
+            bm[m],
+            variant="per block",
+            n=bm["n"],
+            detail=detail,
+            source=src,
+        )
+for label, blocks in (("all 5 blocks", slice(0, 5)), ("excluding block 1", slice(1, 5))):
+    pooled = block_metrics(ap_[ap_.block.isin(order[blocks])])
+    n_ = sum(b["n"] for b in per_block[blocks])
+    for m in ("MAE", "RMSE", "R2"):
+        mean_ = float(np.mean([b[m] for b in per_block[blocks]]))
+        add(
+            "S41_ageblock_aggregation",
+            f"{m}, mean of block values",
+            "mean of blocks",
+            mean_,
+            variant=label,
+            n=n_,
+            detail="unweighted mean of the per-block metrics",
+            source=src,
+        )
+        add(
+            "S41_ageblock_aggregation",
+            f"{m}, pooled over all held-out windows",
+            "pooled",
+            pooled[m],
+            variant=label,
+            n=pooled["n"],
+            detail="one metric over all held-out windows of the blocks (R2 against their mean age)",
+            source=src,
+        )
+
+src = "code/detection.py"
+db = rd("detection", "set2_detection_by_room.csv")
+for _, r in db.iterrows():
+    v = f"{r['mode']} | {r.phase} | k={r.k_days} d | rule={r.rule}"
+    note = f"room-week block bootstrap, {int(r.n_boot)} resamples, seed 0 (shared stream); target specificity {r.target_specificity}"
+    for m, col in (
+        ("positive windows", "n_pos_windows"),
+        ("negative windows", "n_neg_windows"),
+        ("room-week blocks", "n_weeks"),
+        ("bootstrap resamples", "n_boot"),
+    ):
+        add("S42_detection_counts", m, r.test_room, r[col], variant=v, source=src)
+    sp = r.achieved_specificity
+    add(
+        "S42_detection_counts",
+        "false-positive rate",
+        r.test_room,
+        1 - sp,
+        variant=v,
+        n=r.n_neg_windows,
+        detail="1 - achieved specificity on the held-out room's negative windows",
+        source=src,
+    )
+    for tag, label in (("frozen", "fixed-calibration"), ("incl_cal", "calibration-inclusive")):
+        add(
+            "S42_detection_counts",
+            f"false-positive rate, {label} interval",
+            r.test_room,
+            1 - sp,
+            variant=v,
+            lo=1 - r[f"achieved_specificity_ci_hi_{tag}"],
+            hi=1 - r[f"achieved_specificity_ci_lo_{tag}"],
+            n=r.n_neg_windows,
+            detail=note,
+            source=src,
+        )
+KS_TABLE = (5, 10, 15, 20)
+wsc = rd("detection", "set2_window_scores.csv")
+wsc = wsc[(wsc.rule == "same_hour") & (wsc["mode"] == "all_sensor") & wsc.k.isin(KS_TABLE)]
+cnt = wsc.groupby(["phase", "k", "room", "week", "class"]).size().unstack("class", fill_value=0)
+for (phase, k, room, week), r in cnt.iterrows():
+    v = f"all_sensor | {phase} | k={k} d | rule=same_hour"
+    add(
+        "S43_detection_block_counts",
+        "positive windows",
+        f"{room} | {week}",
+        r["pos"],
+        variant=v,
+        source=src,
+    )
+    add(
+        "S43_detection_block_counts",
+        "negative windows",
+        f"{room} | {week}",
+        r["neg"],
+        variant=v,
+        source=src,
+    )
+sb = rd("detection", "set2_sparse_blocks.csv")
+sb = sb[(sb.rule == "same_hour") & sb.k_days.isin(KS_TABLE)]
+for _, r in sb.iterrows():
+    v = f"{r['mode']} | {r.phase} | k={r.k_days} d | rule={r.rule}"
+    for m, col in (
+        ("positive blocks", "n_blocks_pos"),
+        ("negative blocks", "n_blocks_neg"),
+        ("minimum blocks required (each class)", "min_required"),
+        ("estimable", "estimable"),
+    ):
+        add(
+            "S44_detection_nonoverlapping",
+            m,
+            r.test_room,
+            float(r[col]),
+            variant=v,
+            detail=f"blocks per room (pos): {r.n_blocks_per_room}",
+            source=src,
+        )
+
+src = "code/phase2/valid_windows_stage.py"
+vw = rd("valid_windows", "valid_windows.csv")
+defn = "complete-case anchors; a window is usable when more than half of its window-mean features are present, which needs at least 3 observed hours in the trailing 6 h"
+for room, g in list(vw.groupby("room")) + [("all rooms", vw)]:
+    n_obs = g.n_obs_hours
+    for m, v in (
+        ("evaluated windows", len(g)),
+        ("windows with usable temporal features", int(g.valid.sum())),
+        ("windows without usable temporal features", int((~g.valid).sum())),
+        ("windows with 1 observed hour in the trailing 6 h", int((n_obs == 1).sum())),
+        ("windows with 2 observed hours in the trailing 6 h", int((n_obs == 2).sum())),
+        ("share of windows without usable temporal features", float((~g.valid).mean())),
+    ):
+        add("S45_window_validity", m, room, v, n=len(g), detail=defn, source=src)
+
+src = "code/phase2/qc_timing_stage.py"
+qf = rd("qc_timing", "qc_timing_folds.csv")
+ORIG_QC = "original (QC built once on the full series)"
+s41 = {
+    r["room_or_fold"]: r["value"]
+    for r in ROWS
+    if r["section"] == "S41_ageblock_aggregation"
+    and r["metric"] == "MAE"
+    and r["variant"] == "per block"
+}
+for _, r in qf[qf.variant == ORIG_QC].iterrows():
+    assert (
+        abs(r.MAE - s41[f"block {int(r.fold)}"]) < 1e-9
+    ), "original-QC rerun does not reproduce the primary age-block MAE"
+for _, r in qf.iterrows():
+    for m in ("MAE", "RMSE", "R2", "n", "excluded_total", "excluded_train", "excluded_heldout"):
+        label = {
+            "excluded_total": "QC-excluded complete-case hours",
+            "excluded_train": "QC-excluded complete-case hours, training side",
+            "excluded_heldout": "QC-excluded complete-case hours, withheld block",
+        }.get(m, m)
+        add(
+            "S46_qc_timing",
+            label,
+            f"block {int(r.fold)}",
+            r[m],
+            variant=r.variant,
+            n=r.n,
+            detail="age-block evaluation, 12 h window purge, primary fused model",
+            source=src,
+        )
+for v, g in qf.groupby("variant", sort=False):
+    for m in ("MAE", "RMSE", "R2"):
+        add(
+            "S46_qc_timing",
+            f"{m}, mean of block values",
+            "mean of blocks",
+            float(g[m].mean()),
+            variant=v,
+            n=int(g.n.sum()),
+            detail="unweighted mean over the five blocks",
+            source=src,
+        )
+    add(
+        "S46_qc_timing",
+        "QC-excluded complete-case hours (per fold, mean)",
+        "mean of blocks",
+        float(g.excluded_total.mean()),
+        variant=v,
+        source=src,
+    )
+for _, r in rd("qc_timing", "qc_history_leak.csv").iterrows():
+    add(
+        "S46_qc_timing",
+        r.metric,
+        f"block {int(r.fold)}",
+        r.value,
+        variant="age-block folds, 12 h embargo (+-0.5 d of days excluded)",
+        source=src,
+    )
+for _, r in rd("qc_timing", "qc_retrospective.csv").iterrows():
+    add(
+        "S46_qc_timing", r.metric, "all rooms", r.value, variant="day-level QC decision", source=src
+    )
+
+src = "code/phase2/reconcile_stage.py"
+for _, r in rd("reconcile", "reconcile.csv").iterrows():
+    add("S47_reconciliation", r.metric, r.room, r.value, variant=r.fold, source=src)
+src = "code/phase2/build_results_sheet.py (from the clustering curves)"
+for tag, stage in (("primary", "clustering"), ("Step 0 settings", "clustering_step0")):
+    curves = rd(stage, "set4_clustering_curves.csv")
+    for room, g in curves.groupby("room"):
+        series = g.sort_values("age_day").set_index("age_day").early_fraction_smoothed
+        below = (series[series.index > 35] < 0.5).astype(int)
+        crossing = next((a for a in below.index if below[a]), np.nan)
+        persist = next(
+            (
+                a
+                for a in below.index
+                if all(((a + k) in below.index and below[a + k] == 1) for k in range(3))
+            ),
+            np.nan,
+        )
+        add(
+            "S47_reconciliation",
+            "50% crossing: first age > 35 d with the smoothed early-cluster share < 0.5 (day)",
+            room,
+            crossing,
+            variant=tag,
+            source=src,
+        )
+        add(
+            "S47_reconciliation",
+            "persistence: first age > 35 d from which the smoothed share stays < 0.5 for 3 consecutive days (day)",
+            room,
+            persist,
+            variant=tag,
+            source=src,
+        )
+        for day in range(60, 81):
+            if day in series.index:
+                add(
+                    "S47_reconciliation",
+                    f"smoothed early-cluster share at age {day} d",
+                    room,
+                    series[day],
+                    variant=tag,
+                    source=src,
+                )
+src = "code/phase2/build_results_sheet.py (S32, S30, S39)"
+base = next(
+    r["value"]
+    for r in ROWS
+    if r["section"] == "S39_baselines"
+    and r["metric"] == "MAE"
+    and r["room_or_fold"] == "macro"
+    and r["variant"] == "median body height (isotonic)"
+)
+for r in list(ROWS):
+    if (
+        r["section"] in ("S32_model_family", "S30_loro_feature_sets")
+        and r["metric"] == "MAE"
+        and r["room_or_fold"] == "macro"
+    ):
+        add(
+            "S47_reconciliation",
+            "MAE advantage over the median-body-height baseline (days; positive = lower error)",
+            "macro",
+            base - r["value"],
+            variant=r["variant"],
+            detail=f"baseline MAE {base:.2f} d is scored on the windows that have the size feature",
+            source=src,
+        )
+
+src = "code/phase2/build_results_sheet.py (primary predictions restricted to the windows flagged usable in valid_windows.csv)"
+flags = vw[["room", "hour", "valid"]].assign(hour=lambda d: pd.to_datetime(d.hour))
+
+
+def usable(preds):
+    m = preds.assign(hour=pd.to_datetime(preds.hour)).merge(flags, on=["room", "hour"], how="left")
+    assert m.valid.notna().all()
+    return m[m.valid.astype(bool)]
+
+
+ap_u = usable(ap_)
+per_u = [block_metrics(ap_u[ap_u.block == b]) for b in order]
+for i, bm in enumerate(per_u):
+    for m in ("MAE", "RMSE", "R2", "n"):
+        add(
+            "S48_usable_window_metrics",
+            m,
+            f"block {i + 1}",
+            bm[m],
+            variant="age-block, usable windows",
+            n=bm["n"],
+            detail="12 h window purge, primary fused model",
+            source=src,
+        )
+for m in ("MAE", "RMSE", "R2"):
+    add(
+        "S48_usable_window_metrics",
+        f"{m}, mean of block values",
+        "mean of blocks",
+        float(np.mean([b[m] for b in per_u])),
+        variant="age-block, usable windows",
+        n=sum(b["n"] for b in per_u),
+        detail="unweighted mean of the five per-block metrics",
+        source=src,
+    )
+    add(
+        "S48_usable_window_metrics",
+        f"{m}, pooled over all usable windows",
+        "pooled",
+        block_metrics(ap_u)[m],
+        variant="age-block, usable windows",
+        n=len(ap_u),
+        source=src,
+    )
+lo_ = pd.read_csv(RUN / "core_primary/preds_loro_primary.csv")
+lo_u = usable(lo_[lo_.model == "fused"])
+per_room = {r: block_metrics(lo_u[lo_u.room == r]) for r in ROOMS}
+for r, bm in per_room.items():
+    for m in ("MAE", "RMSE", "R2", "n"):
+        add(
+            "S48_usable_window_metrics",
+            m,
+            r,
+            bm[m],
+            variant="leave-one-room-out, usable windows",
+            n=bm["n"],
+            detail="primary fused model",
+            source=src,
+        )
+for m in ("MAE", "RMSE", "R2"):
+    add(
+        "S48_usable_window_metrics",
+        m,
+        "macro",
+        float(np.mean([b[m] for b in per_room.values()])),
+        variant="leave-one-room-out, usable windows",
+        n=sum(b["n"] for b in per_room.values()),
+        detail="mean over the three held-out rooms",
+        source=src,
+    )
+
+src = "code/phase2/build_results_sheet.py"
+for mdl, label in (("morph_only", "morphometry-only"), ("video_all", "video-only")):
+    pu = usable(lo_[lo_.model == mdl])
+    pr = {r: block_metrics(pu[pu.room == r]) for r in ROOMS}
+    for r, bm in pr.items():
+        for m in ("MAE", "RMSE", "R2", "n"):
+            add(
+                "S49_matched_usable_windows",
+                m,
+                r,
+                bm[m],
+                variant=label,
+                n=bm["n"],
+                detail="LORO, windows with usable temporal features (the windows the median-body-height baseline is scored on)",
+                source=src,
+            )
+    for m in ("MAE", "RMSE", "R2"):
+        add(
+            "S49_matched_usable_windows",
+            m,
+            "macro",
+            float(np.mean([b[m] for b in pr.values()])),
+            variant=label,
+            n=sum(b["n"] for b in pr.values()),
+            detail="mean over the three held-out rooms",
+            source=src,
+        )
+
 S = pd.DataFrame(ROWS)
 for c in ("value", "ci_lo", "ci_hi"):
     S[c] = S[c].astype(float)

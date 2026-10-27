@@ -435,6 +435,16 @@ if old_sheet.exists():
         "S37_attribution_abs",
         "S38_clustering_persistence",
         "S39_baselines",
+        "S40_fold_manifest",
+        "S41_ageblock_aggregation",
+        "S42_detection_counts",
+        "S43_detection_block_counts",
+        "S44_detection_nonoverlapping",
+        "S45_window_validity",
+        "S46_qc_timing",
+        "S47_reconciliation",
+        "S48_usable_window_metrics",
+        "S49_matched_usable_windows",
     )
     N = S[~S.section.isin(NEW_SECTIONS)].reset_index(drop=True)
     same = (
@@ -445,7 +455,7 @@ if old_sheet.exists():
     rec(
         "only the new rows change the sheet (all earlier rows byte-identical in content)",
         same,
-        f"earlier sheet {O.shape}, new sheet without S26-S39 {N.shape}; new rows = {int(S.section.isin(NEW_SECTIONS).sum())} (sections S26-S39)",
+        f"earlier sheet {O.shape}, new sheet without S26-S49 {N.shape}; new rows = {int(S.section.isin(NEW_SECTIONS).sum())} (sections S26-S49)",
     )
 iv_ = S.dropna(subset=["ci_lo", "ci_hi", "value"])
 bad = iv_[(iv_.value < iv_.ci_lo - 1e-9) | (iv_.value > iv_.ci_hi + 1e-9)]

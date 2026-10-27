@@ -1,0 +1,63 @@
+table,row,column,as_typed_in_manuscript
+Table 6,room2,K=2,0.402
+Table 6,room2,K=3,0.268
+Table 6,room2,K=4,0.285
+Table 6,room2,K=5,0.295
+Table 6,room2,K=6,0.303
+Table 6,room6,K=2,0.398
+Table 6,room6,K=3,0.392
+Table 6,room6,K=4,0.269
+Table 6,room6,K=5,0.278
+Table 6,room6,K=6,0.282
+Table 6,room7,K=2,0.307
+Table 6,room7,K=3,0.236
+Table 6,room7,K=4,0.278
+Table 6,room7,K=5,0.280
+Table 6,room7,K=6,0.297
+Table 7,room2,50% crossing,60
+Table 7,room2,persistence 3 days,67
+Table 7,room2,maximum balanced accuracy,48
+Table 7,room6,50% crossing,74
+Table 7,room6,persistence 3 days,79
+Table 7,room6,maximum balanced accuracy,74
+Table 7,room7,50% crossing,68
+Table 7,room7,persistence 3 days,68
+Table 7,room7,maximum balanced accuracy,67
+Table 8,5 d growth,AUC,0.75 [0.69-0.83]
+Table 8,5 d growth,sensitivity,0.53 [0.31-0.71]
+Table 8,5 d post-transition,AUC,0.54 [0.51-0.59]
+Table 8,5 d post-transition,sensitivity,0.21 [0.02-0.13]
+Table 8,10 d growth,AUC,0.97 [0.93-1.00]
+Table 8,10 d growth,sensitivity,0.91 [0.75-1.00]
+Table 8,10 d post-transition,AUC,0.61 [0.57-0.67]
+Table 8,10 d post-transition,sensitivity,0.12 [0.01-0.19]
+Table 8,15 d growth,AUC,1.00
+Table 8,15 d growth,sensitivity,1.00
+Table 8,15 d post-transition,AUC,0.69 [0.64-0.75]
+Table 8,15 d post-transition,sensitivity,0.17 [0.05-0.29]
+Table 8,20 d growth,AUC,1.00
+Table 8,20 d growth,sensitivity,1.00
+Table 8,20 d post-transition,AUC,0.75 [0.69-0.81]
+Table 8,20 d post-transition,sensitivity,0.26 [0.17-0.40]
+Table 9,block 1,age range,29.3-68.5
+Table 9,block 1,n,849
+Table 9,block 1,MAE,27.26
+Table 9,block 1,R2,-9.15
+Table 9,block 2,age range,68.5-108.6
+Table 9,block 2,n,851
+Table 9,block 2,MAE,19.71
+Table 9,block 2,R2,-3.00
+Table 9,block 3,age range,108.6-137.3
+Table 9,block 3,n,849
+Table 9,block 3,MAE,13.84
+Table 9,block 3,R2,-3.40
+Table 9,block 4,age range,137.4-159.9
+Table 9,block 4,n,852
+Table 9,block 4,MAE,10.71
+Table 9,block 4,R2,-2.58
+Table 9,block 5,age range,160.3-181.7
+Table 9,block 5,n,851
+Table 9,block 5,MAE,15.83
+Table 9,block 5,R2,-7.73
+Table 9,pooled (fold-mean),n,4252
+Table 9,pooled (fold-mean),MAE,17.47

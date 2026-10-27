@@ -149,10 +149,22 @@ for v in V:
             "n (windows, all rooms)": f"{sum(val('S03_loro', 'n', v, r) for r in ROOMS):,.0f}",
         }
     )
+B2 = "median body height (isotonic)"
+rows.append(
+    {
+        "model": "median body height (isotonic baseline)",
+        **{f"MAE {r}": f(val("S39_baselines", "MAE", B2, r)) for r in ROOMS},
+        "MAE macro": f(val("S39_baselines", "MAE", B2, "macro")),
+        "RMSE macro": f(val("S39_baselines", "RMSE", B2, "macro")),
+        "R2 macro": f(val("S39_baselines", "R2", B2, "macro"), 3),
+        **{f"R2 {r}": f(val("S39_baselines", "R2", B2, r), 3) for r in ROOMS},
+        "n (windows, all rooms)": f"{sum(val('S39_baselines', 'n', B2, r) for r in ROOMS):,.0f}",
+    }
+)
 save(
     "table02_loro",
     pd.DataFrame(rows),
-    "Table 2. Leave-one-room-out performance (MAE and RMSE in days); V2 and V3 are labelled extensions",
+    "Table 2. Leave-one-room-out performance (MAE and RMSE in days); V2 and V3 are labelled extensions. The median-body-height baseline is evaluated only on windows with usable temporal features.",
 )
 rows = []
 for v in V:
@@ -233,33 +245,30 @@ d = S[
     & S.variant.str.contains(r"k=(?:5|10|15|20) d", regex=True)
 ].copy()
 d[["mode", "phase", "k", "rule"]] = d.variant.str.split(" \\| ", expand=True)
+INCL = S[(S.section == "S10_detection_ci_incl_calibration") & (S.room_or_fold == "all rooms")]
 rows = []
 for (mode, phase, kk), g in d.groupby(["mode", "phase", "k"], sort=False):
-    gi = {m: g[g.metric == m].iloc[0] for m in ("AUC", "sensitivity", "achieved specificity")}
-    rows.append(
-        {
-            "mode": mode,
-            "regime": phase,
-            "offset": kk.replace("k=", ""),
-            "AUC [95% CI]": ci(gi["AUC"].value, gi["AUC"].ci_lo, gi["AUC"].ci_hi, 3),
-            "sensitivity [95% CI]": ci(
-                gi["sensitivity"].value, gi["sensitivity"].ci_lo, gi["sensitivity"].ci_hi, 3
-            ),
-            "achieved specificity [95% CI]": ci(
-                gi["achieved specificity"].value,
-                gi["achieved specificity"].ci_lo,
-                gi["achieved specificity"].ci_hi,
-                3,
-            ),
-            "positive windows": f"{gi['AUC'].n:,.0f}",
-            "negative windows": re.search(r"n_neg_windows=(\d+)", gi["AUC"].detail).group(1),
-            "weeks": re.search(r"n_weeks=(\d+)", gi["AUC"].detail).group(1),
-        }
-    )
+    variant = f"{mode} | {phase} | {kk} | rule=same_hour"
+    row = {"mode": mode, "regime": phase, "offset": kk.replace("k=", "").replace(" d", "")}
+    for m, label in (
+        ("AUC", "AUC"),
+        ("sensitivity", "sensitivity"),
+        ("achieved specificity", "achieved specificity"),
+    ):
+        x = g[g.metric == m].iloc[0]
+        y = INCL[(INCL.variant == variant) & (INCL.metric == m)].iloc[0]
+        row[f"{label}"] = f(x.value, 3)
+        row[f"{label} [95% CI, fixed calibration]"] = f"[{x.ci_lo:.3f}, {x.ci_hi:.3f}]"
+        row[f"{label} [95% CI, calibration-inclusive]"] = f"[{y.ci_lo:.3f}, {y.ci_hi:.3f}]"
+    auc = g[g.metric == "AUC"].iloc[0]
+    row["positive windows"] = f"{auc.n:,.0f}"
+    row["negative windows"] = re.search(r"n_neg_windows=(\d+)", auc.detail).group(1)
+    row["room-week blocks"] = re.search(r"n_weeks=(\d+)", auc.detail).group(1)
+    rows.append(row)
 save(
     "table08_detection",
     pd.DataFrame(rows),
-    "Table 8. Detection of injected delays on the calibrated pipeline (in-fold calibration, target specificity 0.95; matched anchors, same-hour rule; trailing 7-day windows with >= 4 days of data). Intervals: 95% room-week bootstrap with the calibration held fixed; conditional on this cohort and these rooms, not new farms",
+    "Table 8. Detection of injected delays (calibrated detector, target specificity 0.95; matched anchors, same-hour rule; trailing 7-day windows with >= 4 days of data). Both intervals are 95% percentile intervals of one room-week block bootstrap (test weeks resampled within each room, 2,000 resamples, seed 0): in the fixed-calibration interval the thresholds stay frozen at their inner-calibration values; in the calibration-inclusive interval each resample also re-derives every threshold from resampled inner-calibration weeks of the two training rooms. Conditional on this cohort and these rooms",
 )
 d = S[
     (S.section == "S09_detection")
@@ -770,6 +779,199 @@ save(
     pd.DataFrame(rows).fillna(""),
     "Table 18. Cumulative effect of each change on leave-one-room-out MAE (days), age-block (12 h purge) and seasonal MAE; Steps 0-2 use the row-based slope, Step 3 the time-based slope",
 )
+
+fm = S[S.section == "S40_fold_manifest"]
+ag = S[S.section == "S41_ageblock_aggregation"]
+rows = []
+for i in range(1, 6):
+    blk = f"block {i}"
+    v = "AGEBLOCK | window purge, 12 h"
+    g_ = lambda m: fm[(fm.metric == m) & (fm.room_or_fold == blk) & (fm.variant == v)].value.iloc[0]
+    pb = lambda m: ag[(ag.metric == m) & (ag.room_or_fold == blk)].value.iloc[0]
+    rows.append(
+        {
+            "block": i,
+            "age range (days)": f"{g_('heldout_lo_age_d'):.3f}-{g_('heldout_hi_age_d'):.3f}",
+            "n windows": f"{g_('n_test'):,.0f}",
+            "boundary type": (
+                "backward extrapolation"
+                if i == 1
+                else ("forward extrapolation" if i == 5 else "internal gap")
+            ),
+            "MAE (days)": f(pb("MAE")),
+            "RMSE (days)": f(pb("RMSE")),
+            "R2": f(pb("R2")),
+        }
+    )
+for label in ("all 5 blocks", "excluding block 1"):
+    for kind, scope in (
+        ("mean of block values", "mean of blocks"),
+        ("pooled over all held-out windows", "pooled"),
+    ):
+        x = {
+            m: ag[(ag.metric == f"{m}, {kind}") & (ag.variant == label)].iloc[0]
+            for m in ("MAE", "RMSE", "R2")
+        }
+        rows.append(
+            {
+                "block": f"{kind} ({label})",
+                "age range (days)": "",
+                "n windows": f"{x['MAE'].n:,.0f}",
+                "boundary type": "",
+                "MAE (days)": f(x["MAE"].value),
+                "RMSE (days)": f(x["RMSE"].value),
+                "R2": f(x["R2"].value),
+            }
+        )
+save(
+    "table09_ageblock_by_block",
+    pd.DataFrame(rows),
+    "Table 9. Leave-one-age-block-out performance by block (12 h purge; block ranges and window counts from the fold manifest). 'mean of block values' is the unweighted mean of the five per-block metrics; 'pooled over all held-out windows' is one metric computed over all windows (R2 against their pooled mean age); the two are different quantities",
+)
+dc = S[S.section == "S42_detection_counts"]
+S9, S10 = S[S.section == "S09_detection"], S[S.section == "S10_detection_ci_incl_calibration"]
+rows = []
+for phase in ("growth (<=70 d)", "plateau (>70 d)"):
+    for k in (5, 10, 15, 20):
+        for room in ["all rooms"] + ROOMS:
+            variant = f"all_sensor | {phase} | k={k} d | rule=same_hour"
+            get = lambda sec, m: sec[
+                (sec.variant == variant) & (sec.room_or_fold == room) & (sec.metric == m)
+            ].iloc[0]
+            cnt = lambda m: dc[
+                (dc.variant == variant) & (dc.room_or_fold == room) & (dc.metric == m)
+            ].iloc[0]
+            fpr = dc[
+                (dc.variant == variant)
+                & (dc.room_or_fold == room)
+                & (dc.metric == "false-positive rate, fixed-calibration interval")
+            ].iloc[0]
+            sens, spec = get(S9, "sensitivity"), get(S9, "achieved specificity")
+            rows.append(
+                {
+                    "phase": phase,
+                    "delay (d)": k,
+                    "held-out scope": room,
+                    "positive windows": f"{cnt('positive windows').value:,.0f}",
+                    "negative windows": f"{cnt('negative windows').value:,.0f}",
+                    "room-week blocks": f"{cnt('room-week blocks').value:,.0f}",
+                    "sensitivity [95% CI, fixed calibration]": ci(
+                        sens.value, sens.ci_lo, sens.ci_hi, 3
+                    ),
+                    "achieved specificity [95% CI, fixed calibration]": ci(
+                        spec.value, spec.ci_lo, spec.ci_hi, 3
+                    ),
+                    "false-positive rate [95% CI, fixed calibration]": ci(
+                        fpr.value, fpr.ci_lo, fpr.ci_hi, 3
+                    ),
+                    "sensitivity [95% CI, calibration-inclusive]": ci(
+                        *(lambda x: (x.value, x.ci_lo, x.ci_hi))(get(S10, "sensitivity")), 3
+                    ),
+                    "achieved specificity [95% CI, calibration-inclusive]": ci(
+                        *(lambda x: (x.value, x.ci_lo, x.ci_hi))(get(S10, "achieved specificity")),
+                        3,
+                    ),
+                }
+            )
+save(
+    "table08e_specificity_beside_sensitivity",
+    pd.DataFrame(rows),
+    "Table 8e. Sensitivity and achieved specificity of the calibrated detector (all-sensor, same-hour rule, target specificity 0.95) per held-out room and pooled, with window and room-week block counts. False-positive rate = 1 - achieved specificity. Intervals as in Table 8",
+)
+bc = S[S.section == "S43_detection_block_counts"].copy()
+bc[["room", "week"]] = bc.room_or_fold.str.split(" \\| ", expand=True)
+bc[["mode", "phase", "k", "rule"]] = bc.variant.str.split(" \\| ", expand=True)
+wide = bc.pivot_table(
+    index=["phase", "k", "room", "week"], columns="metric", values="value", sort=False
+).reset_index()
+save(
+    "table08f_windows_per_room_week",
+    wide.rename(
+        columns={
+            "k": "delay",
+            "positive windows": "positive windows",
+            "negative windows": "negative windows",
+        }
+    ).astype({"positive windows": int, "negative windows": int}),
+    "Table 8f. Positive and negative 7-day windows per held-out room and room-week block (all-sensor, same-hour rule)",
+)
+nb = S[S.section == "S44_detection_nonoverlapping"].copy()
+nb[["mode", "phase", "k", "rule"]] = nb.variant.str.split(" \\| ", expand=True)
+nb = nb[nb["mode"] == "all_sensor"]
+wide = nb.pivot_table(
+    index=["phase", "k", "room_or_fold"], columns="metric", values="value", sort=False
+).reset_index()
+wide["verdict"] = wide.estimable.map({1.0: "estimable", 0.0: "below the minimum"})
+save(
+    "table08g_nonoverlapping_blocks",
+    wide.drop(columns="estimable").rename(columns={"room_or_fold": "scope", "k": "delay"}),
+    "Table 8g. Non-overlapping 7-day blocks: positive and negative blocks per held-out scope against the minimum required in each class (all-sensor, same-hour rule)",
+)
+wv = S[S.section == "S45_window_validity"]
+rows = []
+for room in ROOMS + ["all rooms"]:
+    g_ = lambda m: wv[(wv.metric == m) & (wv.room_or_fold == room)].value.iloc[0]
+    rows.append(
+        {
+            "scope": room,
+            "evaluated windows": f"{g_('evaluated windows'):,.0f}",
+            "with usable temporal features": f"{g_('windows with usable temporal features'):,.0f}",
+            "without usable temporal features": f"{g_('windows without usable temporal features'):,.0f}",
+            "of which 1 observed hour": f"{g_('windows with 1 observed hour in the trailing 6 h'):,.0f}",
+            "of which 2 observed hours": f"{g_('windows with 2 observed hours in the trailing 6 h'):,.0f}",
+            "share without": f(100 * g_("share of windows without usable temporal features"), 1)
+            + "%",
+        }
+    )
+save(
+    "table19_window_validity",
+    pd.DataFrame(rows),
+    "Table 19. Evaluated 6 h windows with and without usable temporal features (complete-case anchors; usable = at least 3 observed hours in the trailing 6 h, so that window means and slopes exist)",
+)
+q = S[S.section == "S46_qc_timing"]
+rows = []
+for v in q[q.metric == "MAE, mean of block values"].variant:
+    row = {"QC variant": v}
+    for m in ("MAE", "RMSE", "R2"):
+        row[f"{m}, mean of 5 blocks"] = f(
+            q[(q.metric == f"{m}, mean of block values") & (q.variant == v)].value.iloc[0], 2
+        )
+    row["windows"] = (
+        f"{q[(q.metric == 'MAE, mean of block values') & (q.variant == v)].n.iloc[0]:,.0f}"
+    )
+    row["QC-excluded complete-case hours (per fold)"] = f(
+        q[
+            (q.metric == "QC-excluded complete-case hours (per fold, mean)") & (q.variant == v)
+        ].value.iloc[0],
+        0,
+    )
+    rows.append(row)
+save(
+    "table20_qc_timing",
+    pd.DataFrame(rows),
+    "Table 20. Age-block evaluation (12 h purge, primary fused model) with the camera-scale QC built once on the full series, from training days only inside each fold, or hour by hour from the running median of the day so far",
+)
+rc = S[S.section == "S47_reconciliation"]
+rows = []
+for tag in ("primary", "Step 0 settings"):
+    for room in ROOMS:
+        x = lambda m: rc[
+            (rc.variant == tag) & (rc.room_or_fold == room) & (rc.metric.str.startswith(m))
+        ].value.iloc[0]
+        rows.append(
+            {
+                "clustering settings": tag,
+                "room": room,
+                "50% crossing (day)": f(x("50% crossing"), 0),
+                "persistence, 3 consecutive days (day)": f(x("persistence"), 0),
+            }
+        )
+save(
+    "table21_transition_reconciliation",
+    pd.DataFrame(rows),
+    "Table 21. Transition days recomputed from the clustering curves of the primary pipeline and of the Step 0 settings (first age > 35 d with the smoothed early-cluster share < 0.5; persistence = the share stays below 0.5 for 3 consecutive days)",
+)
+
 pd.DataFrame([{"table": n, "caption": c_, "rows": r} for n, c_, r in LIST]).to_csv(
     OUT / "_table_list.csv", index=False
 )

@@ -1,4 +1,4 @@
-% Table 2. Leave-one-room-out performance (MAE and RMSE in days); V2 and V3 are labelled extensions
+% Table 2. Leave-one-room-out performance (MAE and RMSE in days); V2 and V3 are labelled extensions. The median-body-height baseline is evaluated only on windows with usable temporal features.
 \begin{tabular}{lllllllllll}
 \hline
 model & MAE room2 & MAE room6 & MAE room7 & MAE macro & RMSE macro & R2 macro & R2 room2 & R2 room6 & R2 room7 & n (windows, all rooms) \\
@@ -7,5 +7,6 @@ primary fused & 18.02 & 23.64 & 14.08 & 18.58 & 25.82 & 0.627 & 0.713 & 0.449 & 
 primary morphometry-only & 19.86 & 17.72 & 13.70 & 17.09 & 23.78 & 0.690 & 0.646 & 0.691 & 0.735 & 4,198 \\
 V3 body-size only & 25.99 & 20.65 & 14.21 & 20.28 & 26.88 & 0.594 & 0.414 & 0.621 & 0.747 & 4,198 \\
 V2 fused (audio first-week reference) & 16.16 & 23.76 & 13.63 & 17.85 & 24.87 & 0.653 & 0.748 & 0.484 & 0.728 & 4,198 \\
+median body height (isotonic baseline) & 24.59 & 19.31 & 15.41 & 19.77 & 26.08 & 0.617 & 0.454 & 0.645 & 0.752 & 3,475 \\
 \hline
 \end{tabular}

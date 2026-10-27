@@ -1,0 +1,33 @@
+phase,delay,scope,positive blocks,negative blocks,minimum blocks required (each class),verdict
+growth (<=70 d),k=5 d,all rooms,8.0,8.0,10.0,below the minimum
+growth (<=70 d),k=5 d,room2,1.0,1.0,10.0,below the minimum
+growth (<=70 d),k=5 d,room6,3.0,3.0,10.0,below the minimum
+growth (<=70 d),k=5 d,room7,4.0,4.0,10.0,below the minimum
+growth (<=70 d),k=10 d,all rooms,7.0,7.0,10.0,below the minimum
+growth (<=70 d),k=10 d,room2,1.0,1.0,10.0,below the minimum
+growth (<=70 d),k=10 d,room6,2.0,2.0,10.0,below the minimum
+growth (<=70 d),k=10 d,room7,4.0,4.0,10.0,below the minimum
+growth (<=70 d),k=15 d,all rooms,4.0,4.0,10.0,below the minimum
+growth (<=70 d),k=15 d,room2,0.0,0.0,10.0,below the minimum
+growth (<=70 d),k=15 d,room6,1.0,1.0,10.0,below the minimum
+growth (<=70 d),k=15 d,room7,3.0,3.0,10.0,below the minimum
+growth (<=70 d),k=20 d,all rooms,3.0,3.0,10.0,below the minimum
+growth (<=70 d),k=20 d,room2,1.0,1.0,10.0,below the minimum
+growth (<=70 d),k=20 d,room6,0.0,0.0,10.0,below the minimum
+growth (<=70 d),k=20 d,room7,2.0,2.0,10.0,below the minimum
+plateau (>70 d),k=5 d,all rooms,34.0,34.0,10.0,estimable
+plateau (>70 d),k=5 d,room2,11.0,11.0,10.0,estimable
+plateau (>70 d),k=5 d,room6,8.0,8.0,10.0,below the minimum
+plateau (>70 d),k=5 d,room7,15.0,15.0,10.0,estimable
+plateau (>70 d),k=10 d,all rooms,29.0,29.0,10.0,estimable
+plateau (>70 d),k=10 d,room2,9.0,9.0,10.0,below the minimum
+plateau (>70 d),k=10 d,room6,6.0,6.0,10.0,below the minimum
+plateau (>70 d),k=10 d,room7,14.0,14.0,10.0,estimable
+plateau (>70 d),k=15 d,all rooms,32.0,32.0,10.0,estimable
+plateau (>70 d),k=15 d,room2,9.0,9.0,10.0,below the minimum
+plateau (>70 d),k=15 d,room6,8.0,8.0,10.0,below the minimum
+plateau (>70 d),k=15 d,room7,15.0,15.0,10.0,estimable
+plateau (>70 d),k=20 d,all rooms,31.0,31.0,10.0,estimable
+plateau (>70 d),k=20 d,room2,10.0,10.0,10.0,estimable
+plateau (>70 d),k=20 d,room6,5.0,5.0,10.0,below the minimum
+plateau (>70 d),k=20 d,room7,16.0,16.0,10.0,estimable

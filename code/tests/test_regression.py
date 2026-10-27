@@ -544,6 +544,56 @@ def test_14_analysis_scripts_row_counts_and_seeds():
         raise AssertionError("paired contrast accepted non-identical rows")
 
 
+def test_15_age_block_counts_sum_to_complete_case_n():
+    """Table 9: the five age-block test sets partition the 4,198 complete-case evaluation windows."""
+    import numpy as np
+    import preprocessing as P
+
+    n_blocks = [int(P.fold("AGEBLOCK", i, check=False)["te"].sum()) for i in range(5)]
+    n_rooms = [int(P.fold("LORO", r, check=False)["te"].sum()) for r in P.ROOMS]
+    assert sum(n_blocks) == sum(n_rooms), (n_blocks, n_rooms)
+    lo, hi = P.held_out_ages("AGEBLOCK", 0)[0], P.held_out_ages("AGEBLOCK", 4)[1]
+    assert np.isclose(lo, P.EDGES[0]) and np.isclose(hi, P.EDGES[5])
+
+
+def test_16_bootstrap_is_reproducible_for_a_fixed_seed():
+    """The room-week block bootstrap returns identical intervals for the same seed and different ones for another."""
+    import detection as DT
+    import numpy as np
+
+    rng_data = np.random.default_rng(1)
+    weeks = [f"w{i}" for i in range(6)]
+    tests = {
+        r: {w: (rng_data.normal(0, 1, 5), rng_data.normal(2, 1, 5)) for w in weeks}
+        for r in DT.ROOMS
+    }
+    inner = {r: {"x": {w: rng_data.normal(0, 1, 5) for w in weeks}} for r in DT.ROOMS}
+    thr = {r: 1.0 for r in DT.ROOMS}
+    a = DT.bootstrap_cell(tests, inner, thr, np.random.default_rng(0), 50)
+    b = DT.bootstrap_cell(tests, inner, thr, np.random.default_rng(0), 50)
+    c = DT.bootstrap_cell(tests, inner, thr, np.random.default_rng(1), 50)
+    key = ("all rooms", "frozen", "sensitivity")
+    assert a["all rooms"]["frozen"]["sensitivity"] == b["all rooms"]["frozen"]["sensitivity"]
+    assert a["all rooms"]["incl_cal"]["AUC"] == b["all rooms"]["incl_cal"]["AUC"]
+    assert a["all rooms"]["frozen"]["AUC"] != c["all rooms"]["frozen"]["AUC"], key
+
+
+def test_17_clustering_figure_values_equal_table_values():
+    """Fig 10 prints the silhouette and crossing day that Tables 6 and 7 report (same sheet rows)."""
+    import pandas as pd
+
+    sheet = pd.read_csv(ROOT / "results/results_sheet.csv")
+    table = pd.read_csv(ROOT / "results/tables/table15_clustering.csv", index_col="metric")
+    s23 = sheet[(sheet.section == "S23_clustering") & (sheet.variant == "primary")]
+    for room in ("room2", "room6", "room7"):
+        sil = s23[(s23.metric == "silhouette_k2") & (s23.room_or_fold == room)].value.iloc[0]
+        day = s23[(s23.metric == "primary_transition_day") & (s23.room_or_fold == room)].value.iloc[
+            0
+        ]
+        assert abs(float(table.loc["silhouette_k2", room]) - round(sil, 3)) < 1e-9, room
+        assert float(table.loc["primary_transition_day", room]) == day, room
+
+
 if __name__ == "__main__":
     import traceback
 

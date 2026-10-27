@@ -420,6 +420,7 @@ def run_calibrated(out_dir, n_boot=2000, cache=None):
                             n_inner_neg_windows="/".join(
                                 str(cals[r].thr[(mode, rule, k, ph, "rolling", "n")]) for r in rr
                             ),
+                            min_required=MIN_WINDOWS,
                             estimable=bool(min(npos, nneg) >= MIN_WINDOWS),
                         )
                         for variant in ("frozen", "incl_cal"):
@@ -491,6 +492,7 @@ def run_calibrated(out_dir, n_boot=2000, cache=None):
                                 AUC=a,
                                 sensitivity=s,
                                 achieved_specificity=sp,
+                                min_required=MIN_WINDOWS,
                                 estimable=bool(min(npos, nneg) >= MIN_WINDOWS),
                                 threshold="/".join(f"{thr[r]:.3f}" for r in rr),
                                 n_inner_neg_blocks="/".join(

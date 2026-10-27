@@ -183,6 +183,21 @@ STAGES = [
         ["code/phase2/valid_windows_stage.py"],
         {**PRIMARY, "PHASE2_OUT": out("valid_windows"), "AUDIO_REF": "none"},
     ),
+    S(
+        "qc_timing",
+        ["code/phase2/qc_timing_stage.py"],
+        {**PRIMARY, "PHASE2_OUT": out("qc_timing"), "AUDIO_REF": "none"},
+    ),
+    S(
+        "reconcile",
+        ["code/phase2/reconcile_stage.py"],
+        {**PRIMARY, "PHASE2_OUT": out("reconcile"), "AUDIO_REF": "none"},
+    ),
+    S(
+        "fold_manifest",
+        ["code/phase2/fold_manifest_stage.py"],
+        {**PRIMARY, "PHASE2_OUT": out("fold_manifest"), "AUDIO_REF": "none"},
+    ),
     S("body_size", ["code/phase2/body_size_stage.py"], {**PRIMARY, "PHASE2_OUT": out("body_size")}),
     S(
         "baselines",
@@ -423,6 +438,10 @@ with open(SHEET.parent / "results_sheet_manifest.txt", "a") as fh:
         + "\n"
     )
 shutil.copy(RUN / "data/feature_dictionary.csv", SHEET.parent / "feature_dictionary.csv")
+(SHEET.parent / "fold_manifests").mkdir(exist_ok=True)
+shutil.copy(
+    RUN / "fold_manifest/fold_manifests.csv", SHEET.parent / "fold_manifests/fold_manifests.csv"
+)
 shutil.copy(RUN / "data/coverage.csv", SHEET.parent / "data_coverage.csv")
 shutil.copy(RUN / "data/key_dates.csv", SHEET.parent / "key_dates.csv")
 print(f"done in {total/60:.1f} min; sheet {SHEET} sha256 {sha(SHEET)}")

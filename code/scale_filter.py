@@ -114,10 +114,15 @@ def load_master(mode=None):
         m.loc[bad, "obs_morph"] = 0
         m["qc__scale_status"] = np.where(bad, "flag", "ok")
         return m
-    dd = daily_decisions(m, variant)
+    return apply_status(m, daily_decisions(m, variant), unchecked)
+
+
+def apply_status(m, decisions, unchecked="exclude"):
+    """Attach each day's QC status and blank the morphometry of flagged days (and of unchecked days when excluded)."""
+    m = m.copy()
     m["day"] = m.hour.dt.floor("D")
     m = m.merge(
-        dd[["room", "day", "status"]].rename(columns={"status": "qc__scale_status"}),
+        decisions[["room", "day", "status"]].rename(columns={"status": "qc__scale_status"}),
         on=["room", "day"],
         how="left",
     ).drop(columns="day")
