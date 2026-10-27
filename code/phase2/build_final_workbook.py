@@ -383,10 +383,10 @@ df, _ = table(
     rows,
 )
 add_tab(
-    "S1_paired_fusion",
+    "Paired_fusion",
     [
         (
-            "Fig S1. Paired MAE differences on identical held-out windows (negative: the first model has the lower error; room-day block bootstrap, 2,000 resamples)",
+            "Paired MAE differences on identical held-out windows (negative: the first model has the lower error; room-day block bootstrap, 2,000 resamples)",
             df,
             {"MAE difference (days)": F2, "95% CI low": F2, "95% CI high": F2, "n windows": F0},
         )
@@ -829,7 +829,7 @@ tab_notes = {
     "Table9_ageblock": "Table 9 (from the fold manifest; mean of blocks and pooled metrics named separately)",
     "Fig5_model_family": "Fig 5 data",
     "Fig9_body_size": "Fig 9 data",
-    "S1_paired_fusion": "Fig S1 data",
+    "Paired_fusion": "Paired MAE differences on identical held-out windows (fusion contrasts)",
     "ExtraTrees_vs_HGB": "Fusion under ExtraTrees vs HGB; HGB vs ExtraTrees with missing data",
     "Availability_regimes": "Modality-availability regimes",
     "Classification": "Three-stage classifier and confusion counts",

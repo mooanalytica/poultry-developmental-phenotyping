@@ -528,7 +528,7 @@ def fig04():
         "Predicted versus actual flock age for the fused model under leave-one-room-out validation. (a) Windows with usable features. (b) All evaluated windows; grey points are windows whose trailing 6 h contained fewer than three observed hours "
         f"({n_bad} of {n_all}; {100 * float(share):.1f}%). An anchor hour can have all required sensor streams present and still lack enough observations in its six-hour window to compute temporal features. Reported metrics are computed on all windows. "
         "Each point is one 6 h evaluation window of the held-out room (model trained on the other two rooms), coloured by room; the dashed line is perfect prediction. Legend entries give each room's mean absolute error (MAE, days) on the windows shown in the panel. "
-        "The three rooms are replicates within one flock and one cycle; no interval is drawn on the scatter (intervals for these errors are in Fig 8 and Fig S1 and are conditional on this cohort and these rooms). MAE = mean absolute error."
+        "The three rooms are replicates within one flock and one cycle; no interval is drawn on the scatter (intervals for these errors are in Fig 8 and are conditional on this cohort and these rooms). MAE = mean absolute error."
     )
     finish(fig, "fig04_loro_predicted_vs_true")
 
@@ -739,7 +739,7 @@ def fig08():
     ng, npl = numv(gr[-1], 0, "n", True), numv(pl[-1], 0, "n", True)
     CAPTIONS["fig08_error_by_growth_phase"] = (
         "Mean absolute error by developmental phase (growth, true age ≤ 70 d; plateau, > 70 d) for the six feature sets, under leave-one-room-out validation (primary pipeline). "
-        f"Bars are the mean over the three held-out rooms of each room's MAE (days) in the phase; the fused model's phases contain {ng} (growth) and {npl} (plateau) 6 h windows. No interval is drawn on the bars; 95% room-day bootstrap intervals for the fused, morphometry-only, V3 and V2 models are in sheet section S27 and the paired differences in Fig S1. Conditional on this cohort and these rooms. MAE = mean absolute error."
+        f"Bars are the mean over the three held-out rooms of each room's MAE (days) in the phase; the fused model's phases contain {ng} (growth) and {npl} (plateau) 6 h windows. No interval is drawn on the bars; 95% room-day bootstrap intervals for the fused, morphometry-only, V3 and V2 models are in sheet section S27 and the paired differences in sheet section S07. Conditional on this cohort and these rooms. MAE = mean absolute error."
     )
     finish(fig, "fig08_error_by_growth_phase")
 
@@ -771,60 +771,6 @@ def fig09():
         "Descriptive; conditional on this cohort and these three rooms."
     )
     finish(fig, "fig09_body_size_trajectory")
-
-
-def fig10():
-    CUR[0] = "figS1"
-    fig, ax, g = P.new_figure(9.2, 4.0, W2MM)
-    contrasts = list(dict.fromkeys(S[S.section == "S07_paired_fusion"].variant))
-    y0 = np.arange(len(contrasts))[::-1]
-    short = {
-        "fused - morphometry-only": "Fused −\nmorphometry-only",
-        "fused - V3 (body-size only)": "Fused − V3",
-        "V2 fused - morphometry-only": "V2 fused −\nmorphometry-only",
-        "V2 fused - V3 (body-size only)": "V2 fused − V3",
-    }
-    offs = (0.27, 0.09, -0.09, -0.27)
-    scopes = ROOMS + ["macro"]
-    cols = {**ROOM_COL, "macro": "k"}
-    for yy, c in zip(y0, contrasts):
-        for off, sc in zip(offs, scopes):
-            r = one("S07_paired_fusion", "MAE difference (days)", c, sc)
-            ax.errorbar(
-                r.value,
-                yy + off,
-                xerr=[[r.value - r.ci_lo], [r.ci_hi - r.value]],
-                fmt="o" if sc != "macro" else "D",
-                color=cols[sc],
-                ms=ms(6, g),
-                capsize=3 * g + 1,
-                lw=lw(1.8, g),
-            )
-    ax.axvline(0, color="k", ls="--", lw=lw(1.2, g))
-    ax.set_yticks(y0)
-    ax.set_yticklabels([short[c] for c in contrasts])
-    ax.set_xlabel("MAE difference (days)\n(negative: first model has the lower error)")
-    ax.grid(axis="y", visible=False)
-    ax.legend(
-        [
-            Line2D([], [], color=cols[sc], marker="o" if sc != "macro" else "D", ls="", ms=ms(6, g))
-            for sc in scopes
-        ],
-        [ROOM_LABEL.get(sc, "Mean of rooms") for sc in scopes],
-        loc="lower right",
-        fontsize=fs(8.5, g),
-    )
-    n = numv(one("S07_paired_fusion", "MAE difference (days)", contrasts[0], "macro"), 0, "n", True)
-    ax.text(
-        0.01, 0.99, f"n = {n} paired windows", transform=ax.transAxes, fontsize=fs(8.5, g), va="top"
-    )
-    fig.tight_layout()
-    CAPTIONS["figS1_paired_fusion_differences"] = (
-        "Paired differences in mean absolute error between models evaluated on identical held-out windows (leave-one-room-out): fused minus morphometry-only, fused minus V3 (strict body-size-only comparator), and the same for V2 (audio referenced to each room's own first week). "
-        "Circles show the per-room difference and diamonds the mean of the three rooms; bars are 95% intervals from a room-day block bootstrap (2,000 resamples, days resampled within rooms). Negative values mean the first model has the lower error. "
-        "The intervals are conditional on this cohort and these three rooms, not on new farms. n = number of paired 6 h windows. MAE = mean absolute error."
-    )
-    finish(fig, "figS1_paired_fusion_differences")
 
 
 def fig11():
@@ -1185,84 +1131,6 @@ def confusion_fig(key, title, mscope, fname_):
     finish(fig, fname_)
 
 
-def fig13_summary():
-    CUR[0] = "figS2"
-    scopes = [(r, ROOM_LABEL[r], r) for r in ROOMS] + [
-        ("pooled", "All rooms", "pooled (all held-out windows)")
-    ]
-    fig, (ax, ax2), g = P.new_figure(11, 4.4, W2MM, 1, 2, gridspec_kw={"width_ratios": [1.0, 1.15]})
-    x = np.arange(3)
-    w = 0.2
-    for k_, (key, title, mscope) in enumerate(scopes):
-        vals = [one("S19_classification", f"recall_{l}", None, mscope) for l in LABS]
-        ax.bar(
-            x + (k_ - 1.5) * w,
-            [v.value for v in vals],
-            w,
-            color=ROOM_COL.get(key, POOLED_COL),
-            label=title,
-        )
-        for xi, v in zip(x + (k_ - 1.5) * w, vals):
-            ax.text(
-                xi,
-                v.value + 0.02,
-                numv(v, 2).lstrip("0"),
-                ha="center",
-                fontsize=fs(8, g),
-                rotation=90,
-                va="bottom",
-            )
-    ax.set_xticks(x)
-    ax.set_xticklabels(["<60 d", "60–110 d", ">110 d"])
-    ax.set_ylim(0, 1.35)
-    ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
-    ax.set_ylabel("Recall")
-    ax.set_xlabel("True stage")
-    ax.set_title("(a) Per-class recall", loc="left", fontsize=fs(10, g))
-    ax.legend(loc="upper center", ncol=2, fontsize=fs(8.5, g))
-    ax2.axis("off")
-    ax2.set_title("(b) Supports and summary metrics", loc="left", fontsize=fs(10, g))
-    hdr = ["", "n", "supports\n(<60 / 60–110 / >110 d)", "balanced\naccuracy", "macro-F1"]
-    rows_ = []
-    for key, title, mscope in scopes:
-        sup = "/".join(
-            numv(one("S19_classification", f"support_{l}", None, mscope), 0, "value", True)
-            for l in LABS
-        )
-        rows_.append(
-            [
-                title,
-                numv(one("S19_classification", "n", None, mscope), 0, "value", True),
-                sup,
-                numv(one("S19_classification", "balanced_accuracy", None, mscope), 3),
-                numv(one("S19_classification", "macro_F1", None, mscope), 3),
-            ]
-        )
-    tb = ax2.table(
-        cellText=rows_,
-        colLabels=hdr,
-        loc="center",
-        cellLoc="center",
-        colWidths=[0.2, 0.11, 0.36, 0.17, 0.16],
-    )
-    tb.auto_set_font_size(False)
-    tb.set_fontsize(fs(8.5, g))
-    tb.scale(1, 2.2)
-    for (r_, c_), cell in tb.get_celld().items():
-        cell.set_linewidth(0.3)
-        cell.set_edgecolor("#999999")
-        cell.get_text().set_fontsize(fs(8.5, g))
-        if r_ == 0:
-            cell.set_facecolor("#f1f1f1")
-    fig.tight_layout()
-    CAPTIONS["figS2_recall_and_metrics"] = (
-        "Per-class recall, class supports and summary metrics of the three-stage classifier (leave-one-room-out; confusion matrices in Figs 13a–d). (a) Recall of each true stage for each held-out room and for all held-out windows pooled (dark grey). "
-        "(b) Number of evaluated windows, class supports (windows per true stage), balanced accuracy (mean of the three recalls) and macro-F1. Balanced accuracy and macro-F1 are given because the mature stage dominates the supports. "
-        "No interval is shown: the three rooms are the replicates, and any interval would be conditional on this cohort and these rooms. F1 = harmonic mean of precision and recall."
-    )
-    finish(fig, "figS2_recall_and_metrics")
-
-
 def fig14():
     CUR[0] = "fig14"
     fig, ax, g = P.new_figure(12.5, 6.0, W2MM, 1, 2)
@@ -1498,8 +1366,6 @@ FIGS = [
         ),
     ),
     ("fig14_negative_controls", fig14),
-    ("figS1_paired_fusion_differences", fig10),
-    ("figS2_recall_and_metrics", fig13_summary),
 ]
 FIGS_ALL = list(FIGS)
 if A.only:
